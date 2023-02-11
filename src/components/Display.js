@@ -6,10 +6,10 @@ export default function Display(props) {
 	const data = props.data;
 	return (
 		<div className="display-container">
-			<header className= "bar-style">
+			{/* <header className= "bar-style">
 				<img className="display-pic" alt="pic" src='freelunchlogo.png' />
       			<h1 style={{ margin: 0, paddingLeft: 180, color: "#fff"}}>Welcome to Free Lunch!</h1>
-			</header>
+			</header> */}
 			{
 				data.map((date, k) => (
 					<div className='date-container' key={k}>
@@ -17,7 +17,7 @@ export default function Display(props) {
 						{
 							date.events.map((event, k1) => (
 								<Link key={k1} to={`/detail/${event.id}`}>
-									<Post post={event} eventTime={date.time}></Post>
+									<Post post={event}></Post>
 								</Link>
 							))
 						}

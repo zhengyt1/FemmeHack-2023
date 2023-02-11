@@ -2,11 +2,13 @@
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	border-color:black;
+	border-color: black;
 }
+
 .display {
 	flex-grow: 1;
 }
+
 .report {
 	height: 600px;
 	position: sticky;
@@ -16,11 +18,13 @@
 	border-radius: 5px;
 	border: 1px solid black;
 }
+
 .report-title {
 	font-size: 50px;
 	margin: 50px;
 	text-align: center;
 }
+
 .report-form {
 	height: 600px;
 	position: relative;
@@ -28,6 +32,7 @@
 	display: flex;
 	flex-direction: column;
 }
+
 .submit {
 	/* position: absolute;
 	bottom: 100px;
@@ -37,6 +42,5 @@
 }
 
 .upload-image {
-  margin-left: 10px;
+	margin-left: 10px;
 }
-

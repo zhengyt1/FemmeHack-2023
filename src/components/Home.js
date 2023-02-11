@@ -10,7 +10,7 @@ import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { message } from 'antd';
 import './Home.css';
 import { getEvents, createEvent } from '../mockAPI/mockAPI';
-
+import Navbar from './Navbar';
 const blue = {
 	500: '#007FFF',
 	600: '#0072E5',
@@ -83,7 +83,7 @@ export default function Home(props) {
 			"eventName": event,
 			"comments": [],
 			"pic": "/" + image,
-			"Status" : status,
+			"Status": status,
 			// "pic": picture,
 			// "id": "1"
 		}
@@ -164,62 +164,67 @@ export default function Home(props) {
 	}, [])
 	// console.log(data);
 	return (
-		<div className='home-container'>
-			{contextHolder}
-			<div className='display'>
-				<Display data={data} />
-			</div>
-			<div class="vline"></div>
-			<div className='report'>
-				<div className='report-title'>report</div>
-				<Box
-					component="form"
-					sx={{
-						'& .MuiTextField-root': { m: 1, width: '25ch' },
-					}}
-					noValidate
-					autoComplete="off"
-				>
-					<div className='report-form'>
-						<TextField
-							required
-							id="event"
-							label="event name"
-							InputLabelProps={{
-								shrink: true,
-							}}
-						/>
-						<TextField
-							required
-							id="location"
-							label="location"
-							InputLabelProps={{
-								shrink: true,
-							}}
-						/>
-						<LocalizationProvider dateAdapter={AdapterDayjs}>
-							<DateTimePicker
-								renderInput={(props) => <TextField id="time"{...props} />}
-								label="DateTimePicker"
-								value={reportTime}
+		<div>
+			<Navbar />
+			<div className='home-container'>
 
-								onChange={(newValue) => {
-									setTime(newValue);
+				{contextHolder}
+				<div className='display'>
+					<Display data={data} />
+				</div>
+				<div class="vline"></div>
+				<div className='report'>
+					<div className='report-title'>report</div>
+					<Box
+						component="form"
+						sx={{
+							'& .MuiTextField-root': { m: 1, width: '25ch' },
+						}}
+						noValidate
+						autoComplete="off"
+					>
+						<div className='report-form'>
+							<TextField
+								required
+								id="event"
+								label="event name"
+								InputLabelProps={{
+									shrink: true,
 								}}
 							/>
-						</LocalizationProvider>
-						<input
-							// style={{ display: 'none' }}
-							className='upload-image'
-							type="file"
-							id="file"
-							accept=".png,.jpeg,.jpg"
-							onChange={(e) => setImage(e.target.files[0].name)}
-						/>
-						<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
-					</div>
-				</Box>
+							<TextField
+								required
+								id="location"
+								label="location"
+								InputLabelProps={{
+									shrink: true,
+								}}
+							/>
+							<LocalizationProvider dateAdapter={AdapterDayjs}>
+								<DateTimePicker
+									renderInput={(props) => <TextField id="time"{...props} />}
+									label="DateTimePicker"
+									value={reportTime}
+
+									onChange={(newValue) => {
+										setTime(newValue);
+									}}
+								/>
+							</LocalizationProvider>
+							<input
+								// style={{ display: 'none' }}
+								className='upload-image'
+								type="file"
+								id="file"
+								accept=".png,.jpeg,.jpg"
+								onChange={(e) => setImage(e.target.files[0].name)}
+							/>
+							<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
+						</div>
+					</Box>
+				</div>
 			</div>
 		</div>
+
 	)
 }

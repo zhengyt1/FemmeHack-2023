@@ -43,6 +43,10 @@ export default function Detail() {
 
 		return [month, day, year].join(' ');
 	}
+	function formatTime(date) {
+		var d = new Date(date);
+		return d.toLocaleTimeString();
+	}
 	const handleClick = async () => {
 		const text = document.getElementById("newComment").value;
 		const newComment = {
@@ -53,7 +57,7 @@ export default function Detail() {
 		console.log(newComment);
 		const newComments = [newComment, ...comments];
 		// console.log(newComments);
-		await updateEvent(eventID, {"comments": newComments});
+		await updateEvent(eventID, { "comments": newComments });
 		setComments(newComments);
 		setImage("");
 	}
@@ -88,7 +92,10 @@ export default function Detail() {
 					<div className='detail-details'>{"Details"}</div>
 
 					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-time'>{eventDetail.eventTime}</div>
+					<div className='detail-time'>{formatDate(eventDetail.eventTime)}</div>
+
+					<div className='detail-date'>{"Start Time: "}</div>
+					<div className='detail-time'>{formatTime(eventDetail.eventTime)}</div>
 
 					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
@@ -97,8 +104,8 @@ export default function Detail() {
 					<div className='detail-details'>{"Venue"}</div>
 					<div className='detail-desc'>{eventDetail.Location}</div>
 
-					
-					
+
+
 					<hr class="hr-edge-weak" />
 					<div>
 						<div>
@@ -144,7 +151,7 @@ export default function Detail() {
 									minWidth: 300,
 								}}
 							/>
-							
+
 						</FormControl>
 					</div>
 					<DetailLocation loc={eventDetail.Location} />
