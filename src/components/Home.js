@@ -14,7 +14,7 @@ import Select from 'react-select';
 import { message } from 'antd';
 import './Home.css';
 import { getEvents, createEvent } from '../mockAPI/mockAPI';
-
+import Navbar from './Navbar';
 const blue = {
 	500: '#007FFF',
 	600: '#0072E5',
@@ -172,6 +172,7 @@ export default function Home(props) {
 	return (
 		<div className='home-container'>
 			{contextHolder}
+			<Navbar />
 			<div className='display'>
 				<Display data={data} />
 			</div>
@@ -240,5 +241,6 @@ export default function Home(props) {
 				</Box>
 			</div>
 		</div>
+
 	)
 }

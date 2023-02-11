@@ -6,11 +6,6 @@ import { getEvent, updateEvent } from '../mockAPI/mockAPI';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import Textarea from '@mui/joy/Textarea';
 import DetailLocation from './DetailLocation';
 
 export default function Detail() {
@@ -43,6 +38,10 @@ export default function Detail() {
 
 		return [month, day, year].join(' ');
 	}
+	function formatTime(date) {
+		var d = new Date(date);
+		return d.toLocaleTimeString();
+	}
 	const handleClick = async () => {
 		const text = document.getElementById("newComment").value;
 		const newComment = {
@@ -53,7 +52,7 @@ export default function Detail() {
 		console.log(newComment);
 		const newComments = [newComment, ...comments];
 		// console.log(newComments);
-		await updateEvent(eventID, {"comments": newComments});
+		await updateEvent(eventID, { "comments": newComments });
 		setComments(newComments);
 		setImage("");
 	}
@@ -111,7 +110,7 @@ export default function Detail() {
 							))
 						}
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
