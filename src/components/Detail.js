@@ -39,7 +39,6 @@ export default function Detail() {
 	useEffect(() => {
 		async function fetchData() {
 			const eventDetail_ = await getEvent(eventID);
-			console.log(eventDetail_);
 
 			if (eventDetail_ !== undefined) {
 				setEventDetail(eventDetail => ({

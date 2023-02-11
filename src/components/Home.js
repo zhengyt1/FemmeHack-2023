@@ -12,19 +12,19 @@ import './Home.css';
 import { getEvents, createEvent } from '../mockAPI/mockAPI';
 
 const blue = {
-  500: '#007FFF',
-  600: '#0072E5',
-  700: '#0059B2',
+	500: '#007FFF',
+	600: '#0072E5',
+	700: '#0059B2',
 };
 
 const grey = {
-  100: '#eaeef2',
-  300: '#afb8c1',
-  900: '#24292f',
+	100: '#eaeef2',
+	300: '#afb8c1',
+	900: '#24292f',
 };
 
 const CustomButton = styled(ButtonUnstyled)(
-  ({ theme }) => `
+	({ theme }) => `
   font-family: IBM Plex Sans, sans-serif;
   font-weight: bold;
   font-size: 0.875rem;
@@ -109,6 +109,15 @@ export default function Home(props) {
 		// 	"id": "1"
 		//   },
 
+		function checkLargerThanToday(eventTime) {
+			var currDate = new Date();
+			currDate.setHours(0, 0, 0, 0);
+			const eveTime = new Date(eventTime);
+			return eveTime >= currDate;
+		}
+		eventsData = eventsData.filter(
+			(event) => checkLargerThanToday(event.eventTime)
+		);
 		const eventsdict = eventsData.reduce((eventsdict, event) => {
 			const eventDate = formatDate(event.eventTime);
 			if (eventsdict[eventDate] !== undefined)
@@ -121,13 +130,16 @@ export default function Home(props) {
 		var dateEventsArray = [];
 		for (const [key, value] of Object.entries(eventsdict)) {
 			// console.log(key, value);
+			// format is:
+			// "time": ...
+			// "events": [{eventDetail...}]
 			const dateEvents = {
 				"time": key,
 				"events": value
 			}
 			dateEventsArray.push(dateEvents);
 		}
-		// console.log(dateEventsArray);
+		console.log(dateEventsArray);
 
 		if (dateEventsArray !== undefined) {
 			dateEventsArray = dateEventsArray.sort(
@@ -177,15 +189,15 @@ export default function Home(props) {
 							}}
 						/>
 						<LocalizationProvider dateAdapter={AdapterDayjs}>
-						<DateTimePicker
-							renderInput={(props) => <TextField id="time"{...props} />}
-							label="DateTimePicker"
-							value={reportTime}
-							
-							onChange={(newValue) => {
-								setTime(newValue);
-							}}
-						/>
+							<DateTimePicker
+								renderInput={(props) => <TextField id="time"{...props} />}
+								label="DateTimePicker"
+								value={reportTime}
+
+								onChange={(newValue) => {
+									setTime(newValue);
+								}}
+							/>
 						</LocalizationProvider>
 						<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
 					</div>
