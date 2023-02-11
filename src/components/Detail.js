@@ -6,6 +6,7 @@ import { getEvent } from '../mockAPI/mockAPI';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
+import DetailLocation from './DetailLocation';
 
 export default function Detail() {
 	const iniEvtState = {
@@ -66,7 +67,7 @@ export default function Detail() {
 					<div className='detail-time'>{formatDate(time)}</div>
 					<div className='detail-title'>{name}</div>
 					<div className='detail-desc'>{description}</div>
-					<hr class="hr-edge-weak" />
+					<hr className="hr-edge-weak" />
 					<div>
 						<div>
 							Comments
@@ -79,6 +80,7 @@ export default function Detail() {
 					</div>
 				</div>
 				<div className='detail-right'>
+					<DetailLocation loc={loc} />
 					<div className='detail-location'>{loc}</div>
 				</div>
 			</div>
