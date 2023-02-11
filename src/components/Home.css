@@ -38,3 +38,8 @@
 .upload-image {
   margin-left: 10px;
 }
+
+.report-form .location {
+	border: 1px solid rgba(0,0,0,0.23);
+	width: 214px;
+}

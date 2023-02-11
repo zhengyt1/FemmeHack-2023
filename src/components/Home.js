@@ -7,6 +7,8 @@ import { styled } from '@mui/system';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+import Select from '@mui/joy/Select';
+import Option from '@mui/joy/Option';
 import { message } from 'antd';
 import './Home.css';
 import { getEvents, createEvent } from '../mockAPI/mockAPI';
@@ -63,6 +65,10 @@ export default function Home(props) {
 	// const [reportdate, setDate] = useState(null);
 	const [reportTime, setTime] = useState(null);
 	const [image, setImage] = useState("");
+	var locations = require('../data/locations.json');
+	// locations = locations.filter(loc => loc.name.includes(eventLocation));
+	locations = locations.map(loc => loc.name);
+	console.log(locations);
 
 	const clickReport = async () => {
 		console.log("in click")
@@ -82,7 +88,7 @@ export default function Home(props) {
 			"Location": location,
 			"eventName": event,
 			"comments": [],
-			"pic": "/" + image,
+			// "pic": "/" + image,
 			"Status" : status,
 			// "pic": picture,
 			// "id": "1"
@@ -188,14 +194,27 @@ export default function Home(props) {
 								shrink: true,
 							}}
 						/>
-						<TextField
+						{/* <TextField
 							required
 							id="location"
 							label="location"
 							InputLabelProps={{
 								shrink: true,
 							}}
-						/>
+						/> */}
+						
+						<div className='location'>
+							<Select
+								variant="plain"
+								// value={currency}
+								// onChange={(_, value) => setCurrency(value!)}
+								sx={{ mr: -1.5, '&:hover': { bgcolor: 'transparent' } }}
+							>
+								<Option value="dollar">US dollar</Option>
+								<Option value="baht">Thai baht</Option>
+								<Option value="yen">Japanese yen</Option>
+							</Select>
+						</div>
 						<LocalizationProvider dateAdapter={AdapterDayjs}>
 							<DateTimePicker
 								renderInput={(props) => <TextField id="time"{...props} />}
@@ -207,14 +226,14 @@ export default function Home(props) {
 								}}
 							/>
 						</LocalizationProvider>
-						<input
+						{/* <input
 							// style={{ display: 'none' }}
 							className='upload-image'
 							type="file"
 							id="file"
 							accept=".png,.jpeg,.jpg"
 							onChange={(e) => setImage(e.target.files[0].name)}
-						/>
+						/> */}
 						<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
 					</div>
 				</Box>
