@@ -172,7 +172,7 @@ export default function Home(props) {
 				<div className='display'>
 					<Display data={data} />
 				</div>
-				<div class="vline"></div>
+				<div className="vline"></div>
 				<div className='report'>
 					<div className='report-title'>report</div>
 					<Box

@@ -85,7 +85,7 @@ export default function Detail() {
 			<div className='detail-container'>
 				<div className='detail-left'>
 					<div className='detail-details'>{"Details"}</div>
-					<hr class="hr-edge-weak" />
+					<hr className="hr-edge-weak" />
 					<div className='detail-date'>{"Date: "}</div>
 					<div className='detail-title'>{formatDate(eventDetail.eventTime)}</div>
 
@@ -94,7 +94,7 @@ export default function Detail() {
 					<div className='detail-title'>{eventDetail.eventDescription}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
-					<hr class="hr-edge-weak" />
+					<hr className="hr-edge-weak" />
 					<DetailLocation loc={eventDetail.Location} />
 					<div className='detail-location'>{eventDetail.Location}</div>
 				</div>
