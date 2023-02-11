@@ -3,13 +3,17 @@
 }
 
 .display-container {
-  border-right: 2px solid; 
-  border-color: #dadaec;
-  border-bottom: 2px solid; 
+  border-right: 2px solid;
+  border-color: black;
+  /* border-bottom: 2px solid; */
 }
 
 .date-container {
-  margin: 50px;
+  padding: 50px;
+}
+
+.date-container .date {
+	font-size: 25px;
 }
 
 .display-pic {
