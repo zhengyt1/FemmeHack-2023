@@ -1,6 +1,6 @@
 import './Post.css';
 import React from 'react'
-import ReactDOM from 'react-dom'
+
 export default function Post(props) {
 	const {
 		eventName,
