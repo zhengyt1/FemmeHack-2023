@@ -171,7 +171,7 @@ export default function Home(props) {
 			</div>
 			<div class="vline"></div>
 			<div className='report'>
-				<div className='report-title'>report</div>
+				<div className='report-title'>Report</div>
 				<Box
 					component="form"
 					sx={{

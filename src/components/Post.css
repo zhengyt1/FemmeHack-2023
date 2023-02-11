@@ -25,26 +25,34 @@
 	align-items: center;
 }
   .post-status-open {
-	font-size: 15px;
+	margin-left: 100px;
+	align-items: center;
+	font-size: 25px;
 	font-weight: bold;
 	color: green;
 	margin-top: 0;
 	margin-bottom: auto;
   } 
   .post-status-closed{
-	font-size: 15px;
+	margin-left: 100px;
+	align-items: center;
+	font-size: 25px;
 	font-weight: bold;
 	color: grey;
 	margin-top: 0;
 	margin-bottom: auto;
   } 
   .post-location {
-	font-size: 15px;
+	margin-left: 100px;
+	align-items: center;
+	font-size: 25px;
 	font-weight: bold;
 	color: black;
   } 
   .post-time {
-	font-size: 15px;
+	margin-left: 100px;
+	align-items: center;
+	font-size: 25px;
 	color: black;
   } 
   .post-button {

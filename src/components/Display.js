@@ -8,7 +8,7 @@ export default function Display(props) {
 		<div className="display-container">
 			<header className= "bar-style">
 				<img className="display-pic" alt="pic" src='freelunchlogo.png' />
-      			<h1 style={{ margin: 0, paddingLeft: 180, color: "#fff"}}>Welcome to Free Lunch!</h1>
+      			<h1 className="welcome">Welcome to Penn Free Lunch!</h1>
 			</header>
 			{
 				data.map((date, k) => (
