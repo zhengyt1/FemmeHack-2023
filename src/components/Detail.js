@@ -84,10 +84,10 @@ export default function Detail() {
 				<div className='detail-left'>
 					<div className='detail-details'>{"Details"}</div>
 					<hr className="hr-edge-weak" />
-					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-title'>{formatDate(eventDetail.eventTime)}</div>
+					<div className='detail-date'>{"Time: "}</div>
+					<div className='detail-title'>{formatDate(eventDetail.eventTime) + " " + formatTime(eventDetail.eventTime)}</div>
 
-					<div className='detail-date'>{"Event Categories: "}</div>
+					<div className='detail-date'>{"Event Description: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
 					<div className='detail-title'>{eventDetail.eventDescription}</div>
 
