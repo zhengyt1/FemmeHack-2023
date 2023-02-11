@@ -70,18 +70,19 @@ export default function Detail() {
 					<div className='detail-details'>{"Details"}</div>
 
 					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-time'>{formatDate(time)}</div>
+					<div className='detail-title'>{formatDate(time)}</div>
 
 					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{name}</div>
 					<div className='detail-desc'>{description}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
-					<div className='detail-desc'>{loc}</div>
+					{/* <hr class="hr-edge-weak" /> */}
 
-					
-					
-					<hr class="hr-edge-weak" />
+					<DetailLocation loc={loc} />
+					<div className='detail-right'>{loc}</div>
+				</div>
+				<div className='detail-right'>
 					<div>
 						<div>
 							<div className='detail-details'>{"Comment"}</div>
@@ -92,10 +93,7 @@ export default function Detail() {
 							))
 						}
 					</div>
-				</div>
-				<div className='detail-right'>
-					<DetailLocation loc={loc} />
-					<div className='detail-location'>{loc}</div>
+					
 				</div>
 			</div>
 		</div>

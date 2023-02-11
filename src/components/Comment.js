@@ -3,7 +3,7 @@ export default function Comment(props) {
     const {
         pic,
         text,
-        createdAt
+        createdAt, 
     } = props.comment;
     // comment be like
     //{
@@ -25,7 +25,6 @@ export default function Comment(props) {
     }
     return (
         <div className="comment-container">
-
             <div className="comment-time">
                 {formatCommentTime(createdTime)}
             </div>

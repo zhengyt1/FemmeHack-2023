@@ -5,11 +5,33 @@
 }
 
 .comment-text {
+    font-family:  Georgia, serif;
+    color: rgb(18, 18, 107);
     padding: 20;
+    font-size: 18px;
     margin: 10px;
-    font-size: 32px;
 }
 
 .comment-time {
+    font-family:  Georgia, serif;
+    color: rgb(18, 18, 107);
     margin: 10px;
+    font-size: 15px;
+}
+.comment-user {
+    font-family:  Georgia, serif;
+    color: rgb(18, 18, 107);
+    margin: 10px;
+    font-size: 20px;
+}
+.comment-pic{
+    width:100px;
+    height:100px;
+    margin-left: 100px;
+}
+.comment-container {
+    margin: 3px;
+    background: rgb(251, 247, 248);
+    border-radius: 5px;
+    border: 2px solid rgb(248, 227, 231);
 }
