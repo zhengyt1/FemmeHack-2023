@@ -22,6 +22,19 @@ export default function Detail() {
 	const location = useLocation();
 	const eventID = location.pathname.split("/")[2];
 
+	function formatDate(date) {
+		var d = new Date(date),
+			month = d.toLocaleString('default', { month: 'short' }),
+			day = '' + d.getDate(),
+			year = d.getFullYear();
+
+		if (month.length < 2)
+			month = '0' + month;
+		if (day.length < 2)
+			day = '0' + day;
+
+		return [month, day, year].join(' ');
+	}
 	useEffect(() => {
 		async function fetchData() {
 			const eventDetail_ = await getEvent(eventID);
@@ -50,10 +63,14 @@ export default function Detail() {
 			</Link>
 			<div className='detail-container'>
 				<div className='detail-left'>
+					<div className='detail-time'>{formatDate(time)}</div>
 					<div className='detail-title'>{name}</div>
-					<div className='detail-time'>{time}</div>
 					<div className='detail-desc'>{description}</div>
+					<hr class="hr-edge-weak" />
 					<div>
+						<div>
+							Comments
+						</div>
 						{
 							comments.map((comment, k) => (
 								<Comment comment={comment} />
