@@ -13,6 +13,7 @@ export default function Post(props) {
 	} = props.post;
 	const timeStr = new Date(eventTime).toLocaleTimeString();
 	var locs = require('../data/locations.json');
+
 	locs = locs.filter(loc => loc.name.includes(Location));
 	const pic = locs.length > 0 ? locs[0].imgSrc : "https://source.unsplash.com/random?Architecture";
 	// const pic = 

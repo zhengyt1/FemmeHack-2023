@@ -70,13 +70,11 @@ export default function Home(props) {
 	const [location, setLocation] = useState({});
 	var locations = require('../data/locations.json');
 	// locations = locations.filter(loc => loc.name.includes(eventLocation));
-	locations = locations.map(loc => ({"value": loc.name, "label": loc.name}));
-	console.log(locations);
+	locations = locations.map(loc => ({ "value": loc.name, "label": loc.name }));
 
 	const clickReport = async () => {
-		// console.log("in click")
 		const event = document.getElementById("event").value;
-		const status = event.Status;
+		// const status = event.Status;
 		// const picture = event.pic
 		if ((!location.value || reportTime === null || event === '') === true) {
 			messageApi.info("Please enter all fields");
@@ -89,11 +87,9 @@ export default function Home(props) {
 			"eventName": event,
 			"comments": [],
 			// "pic": "/" + image,
-			"Status" : status,
-			// "pic": picture,
-			// "id": "1"
+			"Status": "Not Open",
+
 		}
-		console.log(location);
 		await createEvent(newEvent);
 		await fetchData();
 		setImage("");
@@ -132,18 +128,19 @@ export default function Home(props) {
 		eventsData = eventsData.filter(
 			(event) => checkLargerThanToday(event.eventTime)
 		);
-		const eventsdict = eventsData.reduce((eventsdict, event) => {
+		var eventsdict = eventsData.reduce((eventsdict, event) => {
 			const eventDate = formatDate(event.eventTime);
-			if (eventsdict[eventDate] !== undefined)
-				eventsdict[eventDate] += event;
+			if (eventsdict[eventDate] !== undefined) {
+				eventsdict[eventDate].push(event);
+			}
 			else {
-				eventsdict[eventDate] = [event];
+				eventsdict[eventDate] = [];
+				eventsdict[eventDate].push(event);
 			}
 			return eventsdict;
 		}, {});
 		var dateEventsArray = [];
 		for (const [key, value] of Object.entries(eventsdict)) {
-			// console.log(key, value);
 			// format is:
 			// "time": ...
 			// "events": [{eventDetail...}]
@@ -153,22 +150,18 @@ export default function Home(props) {
 			}
 			dateEventsArray.push(dateEvents);
 		}
-		console.log(dateEventsArray);
 
 		if (dateEventsArray !== undefined) {
 			dateEventsArray = dateEventsArray.sort(
 				(a, b) => (a.events[0].eventTime > b.events[0].eventTime ? 1 : -1),
 			);
-			// console.log(dateEventsArray);
 			setData(dateEventsArray);
 		}
-		// console.log(data);
 	}
 	useEffect(() => {
 
 		fetchData();
 	}, [])
-	// console.log(data);
 	return (
 		<div className='home-container'>
 			{contextHolder}
@@ -224,9 +217,9 @@ export default function Home(props) {
 							maxMenuHeight={250}
 							options={locations}
 							value={location}
-							onChange={(newValue) => {setLocation(newValue);}}
-						>	
-						
+							onChange={(newValue) => { setLocation(newValue); }}
+						>
+
 						</Select>
 						{/* <input
 							// style={{ display: 'none' }}

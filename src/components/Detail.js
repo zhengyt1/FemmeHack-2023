@@ -49,9 +49,7 @@ export default function Detail() {
 			"pic": "/" + image,
 			text,
 		}
-		console.log(newComment);
 		const newComments = [newComment, ...comments];
-		// console.log(newComments);
 		await updateEvent(eventID, { "comments": newComments });
 		setComments(newComments);
 		setImage("");

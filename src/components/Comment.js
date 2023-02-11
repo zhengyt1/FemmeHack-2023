@@ -3,9 +3,8 @@ export default function Comment(props) {
     const {
         pic,
         text,
-        createdAt, 
+        createdAt,
     } = props.comment;
-    console.log(createdAt);
     // comment be like
     //{
     //     pic: ...,
