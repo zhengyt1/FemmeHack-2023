@@ -8,6 +8,14 @@
 	border-right: 1px solid black;
 }
 
+.detail-title {
+	font-size: 80px;
+}
+
 .detail-right {
 	width: 50%;
+}
+
+.info-container{
+	margin: 100px;
 }
