@@ -56,6 +56,17 @@ export const createComment = async (commentObject) => {
         console.error(err);
     }
 }
+export const updateEvent = async (id, value) => {
+    try {
+        const response = await axios.put(
+            `${rootURL}/events/${id}`, value
+        );
+        return response.data;
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
 
 
 
