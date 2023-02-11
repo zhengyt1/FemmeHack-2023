@@ -1,4 +1,5 @@
 .post-container {
+	text-decoration: none;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -43,15 +44,18 @@
 	color: grey;
 	margin-top: 0;
 	margin-bottom: auto;
+
 }
 
 .post-location {
+	text-decoration: none;
 	font-size: 15px;
 	font-weight: bold;
 	color: black;
 }
 
 .post-time {
+	text-decoration: none;
 	font-family: Georgia, serif;
 	font-size: 15px;
 	color: black;

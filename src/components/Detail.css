@@ -12,7 +12,7 @@
 	border-right: 1px solid black;
   }
   .detail-details {
-	padding-top: 20px;
+	padding-top: 10px;
 	font-family:  Georgia, serif;
 	width: 50%;
 	font-size: 30px;
@@ -21,7 +21,7 @@
 
   }
   .detail-date {
-	padding-top: 20px;
+	padding-top: 10px;
 	font-family:  Georgia, serif;
 	width: 50%;
 	font-size: 20px;
@@ -30,21 +30,11 @@
   }
   
   .detail-title {
-	padding-top: 20px;
+	padding-top: 10px;
 	font-family:  Georgia, serif;
 	margin: 10px;
 	font-size: 18px;
-	background: #F5F5F5;
-  }
-  
-  .detail-desc {
-	padding-top: 20px;
-	font-family:  Georgia, serif;
-	margin: 10px;
-	font-size: 18px;
-	background: #F5F5F5;
-  }
-  
+  } 
   .detail-right {
 	margin-left: 30px;
 	/* text-align: center; */
