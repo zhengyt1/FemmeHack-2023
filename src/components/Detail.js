@@ -57,6 +57,7 @@ export default function Detail() {
 		(a, b) => (a.createdAt > b.createdAt ? 1 : -1),
 	);
 	const description = eventDetail.eventDescription;
+	
 
 	return (
 		<div>
@@ -65,13 +66,24 @@ export default function Detail() {
 			</Link>
 			<div className='detail-container'>
 				<div className='detail-left'>
+					<div className='detail-details'>{"Details"}</div>
+
+					<div className='detail-date'>{"Date: "}</div>
 					<div className='detail-time'>{formatDate(time)}</div>
+
+					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{name}</div>
 					<div className='detail-desc'>{description}</div>
-					<hr className="hr-edge-weak" />
+
+					<div className='detail-details'>{"Venue"}</div>
+					<div className='detail-desc'>{loc}</div>
+
+					
+					
+					<hr class="hr-edge-weak" />
 					<div>
 						<div>
-							Comments
+							<div className='detail-details'>{"Comment"}</div>
 						</div>
 						{
 							comments.map((comment, k) => (
