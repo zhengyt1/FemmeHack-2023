@@ -11,15 +11,14 @@ export default function Post(props) {
 		eventName,
 		Location,
 	} = props.post;
-
+	const timeStr = new Date(eventTime).toLocaleTimeString();
 	var locs = require('../data/locations.json');
 	locs = locs.filter(loc => loc.name.includes(Location));
-	const pic = locs.length > 0 ? locs[0].imgSrc : "";
-
+	const pic = locs.length > 0 ? locs[0].imgSrc : "https://source.unsplash.com/random?Architecture";
 	// const pic = 
 	const statusClass = Status === "Opening" ? "post-status-open" : "post-status-closed";
 	return (
-		<div className="post-container">
+		<div className="post-container" >
 			<img className="post-pic" alt="pic" src={pic} />
 			<div className="post-description">
 
@@ -30,7 +29,7 @@ export default function Post(props) {
 					<div className="Location">{Location}</div>
 				</div>
 				<div className="post-time">
-					<div className="eventTime">{eventTime}</div>
+					<div className="eventTime">{timeStr}</div>
 				</div>
 
 			</div>

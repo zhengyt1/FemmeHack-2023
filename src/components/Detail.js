@@ -6,11 +6,6 @@ import { getEvent, updateEvent } from '../mockAPI/mockAPI';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import Textarea from '@mui/joy/Textarea';
 import DetailLocation from './DetailLocation';
 
 export default function Detail() {
@@ -43,6 +38,10 @@ export default function Detail() {
 
 		return [month, day, year].join(' ');
 	}
+	function formatTime(date) {
+		var d = new Date(date);
+		return d.toLocaleTimeString();
+	}
 	const handleClick = async () => {
 		const text = document.getElementById("newComment").value;
 		const newComment = {
@@ -53,7 +52,7 @@ export default function Detail() {
 		console.log(newComment);
 		const newComments = [newComment, ...comments];
 		// console.log(newComments);
-		await updateEvent(eventID, {"comments": newComments});
+		await updateEvent(eventID, { "comments": newComments });
 		setComments(newComments);
 		setImage("");
 	}
@@ -72,9 +71,9 @@ export default function Detail() {
 		}
 		fetchData();
 	}, [])
-	// const time = eventDetail.eventTime;
-	// const loc = eventDetail.Location;
-	// const name = eventDetail.eventName;
+	var time = eventDetail.eventTime;
+	var loc = eventDetail.Location;
+	var name = eventDetail.eventName;
 	// const comments = eventDetail.comments;
 	// const description = eventDetail.eventDescription;
 
@@ -86,23 +85,24 @@ export default function Detail() {
 			<div className='detail-container'>
 				<div className='detail-left'>
 					<div className='detail-details'>{"Details"}</div>
-
+					<hr className="hr-edge-weak" />
 					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-time'>{eventDetail.eventTime}</div>
+					<div className='detail-title'>{formatDate(eventDetail.eventTime)}</div>
 
 					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
-					<div className='detail-desc'>{eventDetail.eventDescription}</div>
+					<div className='detail-title'>{eventDetail.eventDescription}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
-					<div className='detail-desc'>{eventDetail.Location}</div>
-
-					
-					
-					<hr class="hr-edge-weak" />
+					<hr className="hr-edge-weak" />
+					<DetailLocation loc={eventDetail.Location} />
+					<div className='detail-location'>{eventDetail.Location}</div>
+				</div>
+				<div className='detail-right'>
 					<div>
 						<div>
 							<div className='detail-details'>{"Comment"}</div>
+							<hr class="hr-edge-weak" />
 						</div>
 						{
 							comments.map((comment, k) => (
@@ -110,45 +110,7 @@ export default function Detail() {
 							))
 						}
 					</div>
-				</div>
-				<div className='detail-right'>
-					<div className='detail-location'>{eventDetail.Location}</div>
-					<div className='upload'>
-						<FormControl id="newComment" onSubmit={handleClick}>
-							<FormLabel>Your comment</FormLabel>
-							<Textarea
-								placeholder="Type something here…"
-								minRows={3}
-								endDecorator={
-									<Box type="submit"
-										sx={{
-											display: 'flex',
-											gap: 'var(--Textarea-paddingBlock)',
-											pt: 'var(--Textarea-paddingBlock)',
-											borderTop: '1px solid',
-											borderColor: 'divider',
-											flex: 'auto',
-										}}
-									>
-										<input
-											// style={{ display: 'none' }}
-											type="file"
-											id="file"
-											accept=".png,.jpeg,.jpg"
-											onChange={(e) => setImage(e.target.files[0].name)}
-										/>
-										<Button sx={{ ml: 'auto' }} onClick={handleClick}>Send</Button>
-									</Box>
-								}
-								sx={{
-									minWidth: 300,
-								}}
-							/>
-							
-						</FormControl>
-					</div>
-					<DetailLocation loc={eventDetail.Location} />
-					<div className='detail-location'>{eventDetail.Location}</div>
+
 				</div>
 			</div>
 		</div>

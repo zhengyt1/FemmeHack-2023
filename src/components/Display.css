@@ -9,18 +9,18 @@
 }
 
 .date-container {
-	margin: 100px;
+  margin: 50px;
 }
 
 .display-pic {
-	width: 200px;
-	height: 100px;
+  width: 200px;
+  height: 60px;
   margin-left: 0px;
   margin-top: 0px;
-	display: flex;
-	object-fit: contain;
-	margin-right: 0px;
-  }
+  display: flex;
+  object-fit: contain;
+  margin-right: 0px;
+}
 
 .bar-style {
   background-color:#dadaec; 
