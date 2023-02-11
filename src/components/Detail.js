@@ -86,19 +86,15 @@ export default function Detail() {
 			<div className='detail-container'>
 				<div className='detail-left'>
 					<div className='detail-details'>{"Details"}</div>
-
+					<hr class="hr-edge-weak" />
 					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-time'>{formatDate(eventDetail.eventTime)}</div>
+					<div className='detail-title'>{formatDate(eventDetail.eventTime)}</div>
 
 					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
-					<div className='detail-desc'>{eventDetail.eventDescription}</div>
+					<div className='detail-title'>{eventDetail.eventDescription}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
-					<div className='detail-desc'>{eventDetail.Location}</div>
-
-					
-					
 					<hr class="hr-edge-weak" />
 					<DetailLocation loc={eventDetail.Location} />
 					<div className='detail-location'>{eventDetail.Location}</div>
@@ -107,6 +103,7 @@ export default function Detail() {
 					<div>
 						<div>
 							<div className='detail-details'>{"Comment"}</div>
+							<hr class="hr-edge-weak" />
 						</div>
 						{
 							comments.map((comment, k) => (
