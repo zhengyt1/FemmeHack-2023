@@ -2,15 +2,15 @@ import './Post.css';
 
 export default function Post(props) {
 	const {
-		time,
-		title,
-	} = props.post;
+		eventName,
+	} = props.event;
+	const eventTime = props.time;
 	return (
 		<div className="post-container">
 			<img className="post-pic" alt="pic" src="/logo192.png" />
 			<div className="post-description">
-				<div className="title">{time}</div>
-				<div className="title">{title}</div>
+				<div className="title">{eventTime}</div>
+				<div className="title">{eventName}</div>
 			</div>
 		</div>
 	)
