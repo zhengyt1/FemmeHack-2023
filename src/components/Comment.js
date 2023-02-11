@@ -5,6 +5,7 @@ export default function Comment(props) {
         text,
         createdAt
     } = props.comment;
+    console.log(createdAt);
     // comment be like
     //{
     //     pic: ...,
@@ -32,7 +33,7 @@ export default function Comment(props) {
             <div className="comment-text">
                 {text}
             </div>
-            {pic !== "" && (
+            {pic && (
                 <img className="comment-pic" src={pic} alt="comment-pic" />
             )}
         </div>

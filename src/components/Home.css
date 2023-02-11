@@ -36,10 +36,7 @@
 	margin: 20px;
 }
 
-.vline {
-    float: left;
-    height: 100%;
-    width: 1px;
-    background: #ccc;
+.upload-image {
+  margin-left: 10px;
 }
 

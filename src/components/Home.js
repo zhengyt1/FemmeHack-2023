@@ -62,6 +62,7 @@ export default function Home(props) {
 	const [data, setData] = useState([]);
 	// const [reportdate, setDate] = useState(null);
 	const [reportTime, setTime] = useState(null);
+	const [image, setImage] = useState("");
 
 	const clickReport = async () => {
 		console.log("in click")
@@ -70,7 +71,7 @@ export default function Home(props) {
 		// const time = document.getElementById('time');
 		const event = document.getElementById("event").value;
 		const status = event.Status;
-		const picture = event.pic
+		// const picture = event.pic
 		if ((location === '' || reportTime === null || event === '') === true) {
 			messageApi.info("Please enter all fields");
 			return;
@@ -81,12 +82,15 @@ export default function Home(props) {
 			"Location": location,
 			"eventName": event,
 			"comments": [],
+			"pic": "/" + image,
 			"Status" : status,
-			"pic": picture,
+			// "pic": picture,
 			// "id": "1"
 		}
+		console.log(image);
 		await createEvent(newEvent);
 		await fetchData();
+		setImage("");
 	}
 	function formatDate(date) {
 		var d = new Date(date),
@@ -149,7 +153,7 @@ export default function Home(props) {
 			dateEventsArray = dateEventsArray.sort(
 				(a, b) => (a.events[0].eventTime > b.events[0].eventTime ? 1 : -1),
 			);
-			console.log(dateEventsArray);
+			// console.log(dateEventsArray);
 			setData(dateEventsArray);
 		}
 		// console.log(data);
@@ -204,6 +208,14 @@ export default function Home(props) {
 								}}
 							/>
 						</LocalizationProvider>
+						<input
+							// style={{ display: 'none' }}
+							className='upload-image'
+							type="file"
+							id="file"
+							accept=".png,.jpeg,.jpg"
+							onChange={(e) => setImage(e.target.files[0].name)}
+						/>
 						<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
 					</div>
 				</Box>

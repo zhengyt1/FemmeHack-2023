@@ -8,6 +8,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/icons-material": "^5.11.0",
+    "@mui/joy": "^5.0.0-alpha.66",
     "@mui/material": "^5.11.8",
     "@mui/types": "^7.2.3",
     "@mui/x-date-pickers": "^5.0.18",
