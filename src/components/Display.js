@@ -6,7 +6,10 @@ export default function Display(props) {
 	const data = props.data;
 	return (
 		<div className="display-container">
-			<div className='display-title'>Food</div>
+			<header className= "bar-style">
+				<img className="display-pic" alt="pic" src='freelunchlogo.png' />
+      			<h1 style={{ margin: 0, paddingLeft: 180, color: "#fff"}}>Welcome to Free Lunch!</h1>
+			</header>
 			{
 				data.map((date, k) => (
 					<div className='date-container' key={k}>
