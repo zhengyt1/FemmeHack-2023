@@ -4,9 +4,12 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import { styled } from '@mui/system';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { message } from 'antd';
 import './Home.css';
-import { getEvents } from '../mockAPI/mockAPI';
+import { getEvents, createEvent } from '../mockAPI/mockAPI';
 
 const blue = {
   500: '#007FFF',
@@ -57,27 +60,29 @@ const CustomButton = styled(ButtonUnstyled)(
 export default function Home(props) {
 	const [messageApi, contextHolder] = message.useMessage();
 	const [data, setData] = useState([]);
-	
-	const clickReport = () => {
+	// const [reportdate, setDate] = useState(null);
+	const [reportTime, setTime] = useState(null);
+
+	const clickReport = async () => {
 		console.log("in click")
-		const place = document.getElementById('place').value;
-		const date = document.getElementById('date').value;
-		const time = document.getElementById('time').value;
+		const location = document.getElementById('location').value;
+		// const date = document.getElementById('date');
+		// const time = document.getElementById('time');
 		const event = document.getElementById("event").value;
-		if (place === '' || date === '' || event === '' === true) {
+		if ((location === '' || reportTime === null || event === '') === true) {
 			messageApi.info("Please enter all fields");
 			return;
 		}
-		const newData = {
-			"id": "0",
-			"time": "12 PM, Feb 6th",
-			"title": "miao",
-			"description": "miaomiaomiao",
+		const newEvent = {
+			"createdAt": new Date(),
+			"eventTime": reportTime,
+			"Location": location,
+			"eventName": event,
+			"comments": [],
+			// "id": "1"
 		}
-		if (data[date]) {
-			// upload
-			// setData([..., ])
-		}
+		await createEvent(newEvent);
+		await fetchData();
 	}
 	function formatDate(date) {
 		var d = new Date(date),
@@ -92,52 +97,52 @@ export default function Home(props) {
 
 		return [month, day, year].join(' ');
 	}
+	async function fetchData() {
+		var eventsData = await getEvents();
+		// One event be like: 
+		// { 
+		// 	"createdAt": "2023-02-10T21:12:34.573Z",
+		// 	"eventTime": "2041-08-09T02:12:03.148Z",
+		// 	"Location": "Location 1",
+		// 	"eventName": "eventName 1",
+		// 	"comments": [],
+		// 	"id": "1"
+		//   },
 
-	useEffect(() => {
-		async function fetchData() {
-			var eventsData = await getEvents();
-			// One event be like: 
-			// { 
-			// 	"createdAt": "2023-02-10T21:12:34.573Z",
-			// 	"eventTime": "2041-08-09T02:12:03.148Z",
-			// 	"Location": "Location 1",
-			// 	"eventName": "eventName 1",
-			// 	"comments": [],
-			// 	"id": "1"
-			//   },
-
-			const eventsdict = eventsData.reduce((eventsdict, event) => {
-				const eventDate = formatDate(event.eventTime);
-				if (eventsdict[eventDate] !== undefined)
-					eventsdict[eventDate] += event;
-				else {
-					eventsdict[eventDate] = [event];
-				}
-				return eventsdict;
-			}, {});
-			var dateEventsArray = [];
-			for (const [key, value] of Object.entries(eventsdict)) {
-				console.log(key, value);
-				const dateEvents = {
-					"time": key,
-					"events": value
-				}
-				dateEventsArray.push(dateEvents);
+		const eventsdict = eventsData.reduce((eventsdict, event) => {
+			const eventDate = formatDate(event.eventTime);
+			if (eventsdict[eventDate] !== undefined)
+				eventsdict[eventDate] += event;
+			else {
+				eventsdict[eventDate] = [event];
 			}
-			console.log(dateEventsArray);
-
-			if (dateEventsArray !== undefined) {
-				dateEventsArray = dateEventsArray.sort(
-					(a, b) => (a.events[0].eventTime > b.events[0].eventTime ? 1 : -1),
-				);
-				console.log(dateEventsArray);
-				setData(dateEventsArray);
+			return eventsdict;
+		}, {});
+		var dateEventsArray = [];
+		for (const [key, value] of Object.entries(eventsdict)) {
+			// console.log(key, value);
+			const dateEvents = {
+				"time": key,
+				"events": value
 			}
-			// console.log(data);
+			dateEventsArray.push(dateEvents);
 		}
+		// console.log(dateEventsArray);
+
+		if (dateEventsArray !== undefined) {
+			dateEventsArray = dateEventsArray.sort(
+				(a, b) => (a.events[0].eventTime > b.events[0].eventTime ? 1 : -1),
+			);
+			console.log(dateEventsArray);
+			setData(dateEventsArray);
+		}
+		// console.log(data);
+	}
+	useEffect(() => {
 
 		fetchData();
 	}, [])
+	// console.log(data);
 	return (
 		<div className='home-container'>
 			{contextHolder}
@@ -165,22 +170,24 @@ export default function Home(props) {
 						/>
 						<TextField
 							required
-							id="place"
-							label="place"
+							id="location"
+							label="location"
 							InputLabelProps={{
 								shrink: true,
 							}}
 						/>
-						<TextField
-							required
-							id="date"
-							label="date"
-							// type="number"
-							InputLabelProps={{
-								shrink: true,
+						<LocalizationProvider dateAdapter={AdapterDayjs}>
+						<DateTimePicker
+							renderInput={(props) => <TextField id="time"{...props} />}
+							label="DateTimePicker"
+							value={reportTime}
+							
+							onChange={(newValue) => {
+								setTime(newValue);
 							}}
 						/>
-						<CustomButton onClick={clickReport}>Submit</CustomButton>
+						</LocalizationProvider>
+						<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
 					</div>
 				</Box>
 			</div>

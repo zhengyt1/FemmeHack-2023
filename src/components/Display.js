@@ -8,13 +8,13 @@ export default function Display(props) {
 		<div className="display-container">
 			<div className='display-title'>Food</div>
 			{
-				data.map((day, k) => (
+				data.map((date, k) => (
 					<div className='date-container' key={k}>
-						<div className='date'>{day.time}</div>
+						<div className='date'>{date.time}</div>
 						{
-							day.posts.map((post, k1) => (
-								<Link key={k1} to={`/detail/${post.id}`}>
-									<Post post={post}></Post>
+							date.events.map((event, k1) => (
+								<Link key={k1} to={`/detail/${event.id}`}>
+									<Post event={event} eventTime={date.time}></Post>
 								</Link>
 							))
 						}

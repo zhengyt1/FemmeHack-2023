@@ -4,7 +4,7 @@ export default function Post(props) {
 	const {
 		eventName,
 	} = props.event;
-	const eventTime = props.time;
+	const eventTime = props.eventTime;
 	return (
 		<div className="post-container">
 			<img className="post-pic" alt="pic" src="/logo192.png" />
