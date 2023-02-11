@@ -2,7 +2,8 @@
 	width: 100%;
 	display: flex;
 	flex-direction: row;
-	border-color: black;
+	border-color:black;
+	background-color: #F5F5F5;
 }
 
 .display {
@@ -17,9 +18,12 @@
 	margin: 50px;
 	border-radius: 5px;
 	border: 1px solid black;
+	background-color: #F5F5F5;
 }
 
 .report-title {
+	font-family: Georgia, serif;
+	border-bottom: 3px solid black;
 	font-size: 50px;
 	margin: 50px;
 	text-align: center;
@@ -28,7 +32,8 @@
 .report-form {
 	height: 600px;
 	position: relative;
-	margin: auto;
+	margin-left: 20px;
+	/* margin: auto; */
 	display: flex;
 	flex-direction: column;
 }
@@ -38,7 +43,9 @@
 	bottom: 100px;
 	text-align: center;
 	color: #000; */
-	margin: 20px;
+	margin-left: 10px;
+	margin-top: 30px;
+	width: 220px
 }
 
 .upload-image {

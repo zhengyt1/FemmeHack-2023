@@ -27,9 +27,21 @@
 }
 
 .bar-style {
-  background-color: #dadaec;
-  color: rgb(15, 15, 15);
-  height: 100px;
-  display: flex;
+  background-color:#dadaec; 
+  color: rgb(15, 15, 15); 
+  height: 100px; 
+  display: flex; 
   align-items: center;
+}
+
+.welcome {
+  margin-left: 160px;
+  padding: 180;
+  color: #F5F5F5;
+  font-family: Georgia;
+}
+
+.date {
+  font-family: Georgia;
+  margin-left: 25px;
 }
