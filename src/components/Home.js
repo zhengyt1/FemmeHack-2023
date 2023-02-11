@@ -74,6 +74,7 @@ export default function Home(props) {
 
 	const clickReport = async () => {
 		const event = document.getElementById("event").value;
+		document.getElementById("event").value = "";
 		// const status = event.Status;
 		// const picture = event.pic
 		if ((!location.value || reportTime === null || event === '') === true) {
@@ -224,14 +225,6 @@ export default function Home(props) {
 							>
 
 							</Select>
-							{/* <input
-								// style={{ display: 'none' }}
-								className='upload-image'
-								type="file"
-								id="file"
-								accept=".png,.jpeg,.jpg"
-								onChange={(e) => setImage(e.target.files[0].name)}
-							/> */}
 							<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
 						</div>
 					</Box>

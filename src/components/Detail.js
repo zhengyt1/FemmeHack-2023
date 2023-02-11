@@ -107,9 +107,8 @@ export default function Detail() {
 					<div>
 						<div className='upload'>
 							<FormControl id="newComment" onSubmit={handleClick}>
-								<FormLabel>Your comment</FormLabel>
 								<Textarea
-									placeholder="Type something here…"
+									placeholder="Your comment here…"
 									minRows={3}
 									endDecorator={
 										<Box type="submit"
