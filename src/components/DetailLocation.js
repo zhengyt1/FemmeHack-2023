@@ -7,11 +7,11 @@ export default function DetailLocation(props) {
     const src = locs.length > 0 ? locs[0].mapUrl : "";
     return (
         // Important! Always set the container height explicitly
-        <div style={{ height: '100vh', width: '100%' }}>
+        <div style={{ margin: '30px', height: '40vh', width: '70%' }}>
             <iframe
                 src={src}
-                width="600"
-                height="450"
+                width="100%"
+                height="100%"
                 allowFullScreen=""
                 loading="lazy"
                 title="locMap"

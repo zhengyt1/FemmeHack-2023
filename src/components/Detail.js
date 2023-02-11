@@ -10,12 +10,12 @@ import DetailLocation from './DetailLocation';
 
 export default function Detail() {
 	const iniEvtState = {
-		"createdAt": "2023-02-10T21:12:34.573Z",
-		"eventTime": "2000-08-09T02:12:03.148Z",
-		"Location": "Location 1",
-		"eventName": "eventName 1",
+		"createdAt": "",
+		"eventTime": "",
+		"Location": "",
+		"eventName": "",
 		"comments": [],
-		"id": "122"
+		"id": "1"
 	}
 
 	const [eventDetail, setEventDetail] = useState(iniEvtState);
@@ -54,7 +54,9 @@ export default function Detail() {
 	const time = eventDetail.eventTime;
 	const loc = eventDetail.Location;
 	const name = eventDetail.eventName;
-	const comments = eventDetail.comments;
+	const comments = eventDetail.comments.sort(
+		(a, b) => (a.createdAt > b.createdAt ? 1 : -1),
+	);
 	const description = eventDetail.eventDescription;
 
 	return (

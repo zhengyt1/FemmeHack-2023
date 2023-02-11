@@ -5,6 +5,12 @@ export default function Comment(props) {
         text,
         createdAt
     } = props.comment;
+    // comment be like
+    //{
+    //     pic: ...,
+    //     text: ..,
+    //     createdAt: ...
+    // }
     const createdTime = new Date(createdAt);
     function formatCommentTime(unformattedDateTime) {
         var date = new Date(unformattedDateTime);
