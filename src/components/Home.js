@@ -117,7 +117,7 @@ export default function Home() {
 							{
 								day.events.map((event, k1) => (
 									<Link key={k1} to={`/detail/${event.id}`}>
-										<Post event={event} time={day.time}></Post>
+										<Post post={event} time={day.time} imgSrc={event.imgSrc}></Post>
 									</Link>
 								))
 							}
