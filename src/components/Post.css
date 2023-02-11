@@ -1,0 +1,19 @@
+.post-container {
+	display: flex;
+	margin: 10px;
+	background-color: antiquewhite;
+}
+.post-pic {
+	width: 221px;
+	height: 148px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	object-fit: contain;
+}
+.post-description {
+	padding: 10px;
+}
+.post-description .title {
+	font-size: 32px;
+}

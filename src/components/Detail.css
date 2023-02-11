@@ -1,0 +1,13 @@
+.detail-container {
+  display: flex;
+	border-top: 1px solid black;
+}
+
+.detail-left {
+	width: 50%;
+	border-right: 1px solid black;
+}
+
+.detail-right {
+	width: 50%;
+}
