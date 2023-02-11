@@ -67,44 +67,7 @@ export default function Home() {
 				setData(dateEventsArray);
 			}
 		}
-
 		fetchData();
-		// const tmp = [
-		// 	{
-		// 		"time": "Feb 6th",
-		// 		"posts": [
-		// 			{
-		// 				"id": "0",
-		// 				"time": "12 PM, Feb 6th",
-		// 				"title": "miao",
-		// 				"description": "miaomiaomiao",
-		// 			},
-		// 		],
-		// 	},
-		// 	{
-		// 		"time": "Feb 6th",
-		// 		"posts": [
-		// 			{
-		// 				"id": "1",
-		// 				"time": "12 PM, Feb 6th",
-		// 				"title": "miao",
-		// 				"description": "miaomiaomiao",
-		// 			},
-		// 		],
-		// 	},
-		// 	{
-		// 		"time": "Feb 7th",
-		// 		"posts": [
-		// 			{
-		// 				"id": "2",
-		// 				"time": "12 PM, Feb 7th",
-		// 				"title": "miao",
-		// 				"description": "miaomiaomiao",
-		// 			},
-		// 		],
-		// 	},
-		// ]
-		// setData(tmp);
 	}, [])
 	return (
 		<div className="home-container">
