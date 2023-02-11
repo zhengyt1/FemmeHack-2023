@@ -113,6 +113,7 @@ export default function Home(props) {
 	}
 	async function fetchData() {
 		var eventsData = await getEvents();
+		// eventsData = [];
 		// One event be like: 
 		// { 
 		// 	"createdAt": "2023-02-10T21:12:34.573Z",
@@ -170,75 +171,78 @@ export default function Home(props) {
 	}, [])
 	// console.log(data);
 	return (
-		<div className='home-container'>
-			{contextHolder}
+		<div>
+
 			<Navbar />
-			<div className='display'>
-				<Display data={data} />
-			</div>
-			<div className="vline"></div>
-			<div className='report'>
-				<div className='report-title'>report</div>
-				<Box
-					component="form"
-					sx={{
-						'& .MuiTextField-root': { m: 1, width: '25ch' },
-					}}
-					noValidate
-					autoComplete="off"
-				>
-					<div className='report-form'>
-						<TextField
-							required
-							id="event"
-							label="event name"
-							InputLabelProps={{
-								shrink: true,
-							}}
-						/>
-						{/* <TextField
-							required
-							id="location"
-							label="location"
-							InputLabelProps={{
-								shrink: true,
-							}}
-						/> */}
-
-						<LocalizationProvider dateAdapter={AdapterDayjs}>
-							<DateTimePicker
-								renderInput={(props) => <TextField id="time"{...props} />}
-								label="DateTimePicker"
-								value={reportTime}
-
-								onChange={(newValue) => {
-									setTime(newValue);
+			<div className='home-container'>
+				{contextHolder}
+				<div className='display'>
+					<Display data={data} />
+				</div>
+				<div className="vline"></div>
+				<div className='report'>
+					<div className='report-title'>report</div>
+					<Box
+						component="form"
+						sx={{
+							'& .MuiTextField-root': { m: 1, width: '25ch' },
+						}}
+						noValidate
+						autoComplete="off"
+					>
+						<div className='report-form'>
+							<TextField
+								required
+								id="event"
+								label="event name"
+								InputLabelProps={{
+									shrink: true,
 								}}
 							/>
-						</LocalizationProvider>
+							{/* <TextField
+								required
+								id="location"
+								label="location"
+								InputLabelProps={{
+									shrink: true,
+								}}
+							/> */}
 
-						<Select
-							// variant="plain"
-							id="location"
-							className='select'
-							maxMenuHeight={250}
-							options={locations}
-							value={location}
-							onChange={(newValue) => {setLocation(newValue);}}
-						>	
-						
-						</Select>
-						{/* <input
-							// style={{ display: 'none' }}
-							className='upload-image'
-							type="file"
-							id="file"
-							accept=".png,.jpeg,.jpg"
-							onChange={(e) => setImage(e.target.files[0].name)}
-						/> */}
-						<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
-					</div>
-				</Box>
+							<LocalizationProvider dateAdapter={AdapterDayjs}>
+								<DateTimePicker
+									renderInput={(props) => <TextField id="time"{...props} />}
+									label="DateTimePicker"
+									value={reportTime}
+
+									onChange={(newValue) => {
+										setTime(newValue);
+									}}
+								/>
+							</LocalizationProvider>
+
+							<Select
+								// variant="plain"
+								id="location"
+								className='select'
+								maxMenuHeight={250}
+								options={locations}
+								value={location}
+								onChange={(newValue) => {setLocation(newValue);}}
+							>	
+							
+							</Select>
+							{/* <input
+								// style={{ display: 'none' }}
+								className='upload-image'
+								type="file"
+								id="file"
+								accept=".png,.jpeg,.jpg"
+								onChange={(e) => setImage(e.target.files[0].name)}
+							/> */}
+							<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
+						</div>
+					</Box>
+				</div>
 			</div>
 		</div>
 
