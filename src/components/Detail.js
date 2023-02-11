@@ -88,14 +88,14 @@ export default function Detail() {
 					<div className='detail-details'>{"Details"}</div>
 
 					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-time'>{eventDetail.eventTime}</div>
+					<div className='detail-time'>{formatDate(time)}</div>
 
 					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
 					<div className='detail-desc'>{eventDetail.eventDescription}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
-					<div className='detail-desc'>{eventDetail.Location}</div>
+					<div className='detail-desc'>{loc}</div>
 
 					
 					
@@ -112,43 +112,8 @@ export default function Detail() {
 					</div>
 				</div>
 				<div className='detail-right'>
-					<div className='detail-location'>{eventDetail.Location}</div>
-					<div className='upload'>
-						<FormControl id="newComment" onSubmit={handleClick}>
-							<FormLabel>Your comment</FormLabel>
-							<Textarea
-								placeholder="Type something here…"
-								minRows={3}
-								endDecorator={
-									<Box type="submit"
-										sx={{
-											display: 'flex',
-											gap: 'var(--Textarea-paddingBlock)',
-											pt: 'var(--Textarea-paddingBlock)',
-											borderTop: '1px solid',
-											borderColor: 'divider',
-											flex: 'auto',
-										}}
-									>
-										<input
-											// style={{ display: 'none' }}
-											type="file"
-											id="file"
-											accept=".png,.jpeg,.jpg"
-											onChange={(e) => setImage(e.target.files[0].name)}
-										/>
-										<Button sx={{ ml: 'auto' }} onClick={handleClick}>Send</Button>
-									</Box>
-								}
-								sx={{
-									minWidth: 300,
-								}}
-							/>
-							
-						</FormControl>
-					</div>
-					<DetailLocation loc={eventDetail.Location} />
-					<div className='detail-location'>{eventDetail.Location}</div>
+					<DetailLocation loc={loc} />
+					<div className='detail-location'>{loc}</div>
 				</div>
 			</div>
 		</div>

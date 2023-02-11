@@ -8,29 +8,29 @@
   
 
   .detail-left {
-	width: 50%;
+	width: 60%;
 	border-right: 1px solid black;
   }
   .detail-details {
+	padding-top: 20px;
 	font-family:  Georgia, serif;
 	width: 50%;
 	font-size: 30px;
 	font-weight: bold;
 	color: rgb(18, 18, 107);
-	border-right: 1px solid black;
 
   }
   .detail-date {
+	padding-top: 20px;
 	font-family:  Georgia, serif;
 	width: 50%;
 	font-size: 20px;
 	font-weight: bold;
-	color: rgb(66, 170, 235);
-	border-right: 1px solid black;
-
+	color: rgb(66, 150, 235);
   }
   
   .detail-title {
+	padding-top: 20px;
 	font-family:  Georgia, serif;
 	margin: 10px;
 	font-size: 18px;
@@ -38,6 +38,7 @@
   }
   
   .detail-desc {
+	padding-top: 20px;
 	font-family:  Georgia, serif;
 	margin: 10px;
 	font-size: 18px;
@@ -45,19 +46,18 @@
   }
   
   .detail-right {
-	width: 50%;
+	margin-left: 30px;
+	/* text-align: center; */
+	font-family:  Georgia, serif;
+	position: relative;
+	font-size: 18px;
+	z-index: 1;
+	width: 60%;
   }
   
   .hr-edge-weak {
 	border: 0;
 	padding-top: 1px;
 	background: linear-gradient(to right, transparent, #d0d0d5, transparent);
-}
-
-.upload {
-	margin: 50px;
-	position: sticky;
-	top: 50px
-}
-
+  }
   
