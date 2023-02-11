@@ -3,7 +3,10 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import './Detail.css';
 
 export default function Detail() {
-  return (
+	// const [eventTime, setventTime] = useState("");
+	async function fetchData() {
+	}
+	return (
 		<div>
 			<Link to='/'>
 				<ArrowBackIcon />

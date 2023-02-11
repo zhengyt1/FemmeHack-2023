@@ -6,6 +6,7 @@ import ButtonUnstyled, { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled'
 import { styled } from '@mui/system';
 import { message } from 'antd';
 import './Home.css';
+import { getEvents } from '../mockAPI/mockAPI';
 
 const blue = {
   500: '#007FFF',
@@ -78,49 +79,64 @@ export default function Home(props) {
 			// setData([..., ])
 		}
 	}
+	function formatDate(date) {
+		var d = new Date(date),
+			month = d.toLocaleString('default', { month: 'short' }),
+			day = '' + d.getDate(),
+			year = d.getFullYear();
+
+		if (month.length < 2)
+			month = '0' + month;
+		if (day.length < 2)
+			day = '0' + day;
+
+		return [month, day, year].join(' ');
+	}
+
 	useEffect(() => {
-		const tmp = [
-			{
-				"time": "Feb 5th",
-				"posts": [
-					{
-						"id": "0",
-						"time": "12 PM, Feb 6th",
-						"title": "miao",
-						"description": "miaomiaomiao",
-					},
-					{
-						"id": "0",
-						"time": "12 PM, Feb 6th",
-						"title": "miao",
-						"description": "miaomiaomiao",
-					},
-				],
-			},
-			{
-				"time": "Feb 6th",
-				"posts": [
-					{
-						"id": "1",
-						"time": "12 PM, Feb 6th",
-						"title": "miao",
-						"description": "miaomiaomiao",
-					},
-				],
-			},
-			{
-				"time": "Feb 7th",
-				"posts": [
-					{
-						"id": "2",
-						"time": "12 PM, Feb 7th",
-						"title": "miao",
-						"description": "miaomiaomiao",
-					},
-				],
-			},
-		]
-		setData(tmp);
+		async function fetchData() {
+			var eventsData = await getEvents();
+			// One event be like: 
+			// { 
+			// 	"createdAt": "2023-02-10T21:12:34.573Z",
+			// 	"eventTime": "2041-08-09T02:12:03.148Z",
+			// 	"Location": "Location 1",
+			// 	"eventName": "eventName 1",
+			// 	"comments": [],
+			// 	"id": "1"
+			//   },
+
+			const eventsdict = eventsData.reduce((eventsdict, event) => {
+				const eventDate = formatDate(event.eventTime);
+				if (eventsdict[eventDate] !== undefined)
+					eventsdict[eventDate] += event;
+				else {
+					eventsdict[eventDate] = [event];
+				}
+				return eventsdict;
+			}, {});
+			var dateEventsArray = [];
+			for (const [key, value] of Object.entries(eventsdict)) {
+				console.log(key, value);
+				const dateEvents = {
+					"time": key,
+					"events": value
+				}
+				dateEventsArray.push(dateEvents);
+			}
+			console.log(dateEventsArray);
+
+			if (dateEventsArray !== undefined) {
+				dateEventsArray = dateEventsArray.sort(
+					(a, b) => (a.events[0].eventTime > b.events[0].eventTime ? 1 : -1),
+				);
+				console.log(dateEventsArray);
+				setData(dateEventsArray);
+			}
+			// console.log(data);
+		}
+
+		fetchData();
 	}, [])
 	return (
 		<div className='home-container'>
