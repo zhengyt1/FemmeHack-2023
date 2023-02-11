@@ -4,6 +4,8 @@ import Post from './Post';
 import Report from './Report';
 import './Home.css';
 import { getEvents } from '../mockAPI/mockAPI';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 export default function Home() {
 	const [data, setData] = useState([]);
