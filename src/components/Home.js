@@ -35,6 +35,7 @@ export default function Home() {
 			// 	"id": "1"
 			//   },
 
+			// Transfer array to dictionary
 			const eventsdict = eventsData.reduce((eventsdict, event) => {
 				const eventDate = formatDate(event.eventTime);
 				if (eventsdict[eventDate] !== undefined)
@@ -44,6 +45,8 @@ export default function Home() {
 				}
 				return eventsdict;
 			}, {});
+
+			// Transfer dictionary to array
 			var dateEventsArray = [];
 			for (const [key, value] of Object.entries(eventsdict)) {
 				console.log(key, value);
@@ -62,7 +65,6 @@ export default function Home() {
 				console.log(dateEventsArray);
 				setData(dateEventsArray);
 			}
-			// console.log(data);
 		}
 
 		fetchData();
