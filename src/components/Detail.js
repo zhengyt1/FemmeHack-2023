@@ -72,9 +72,9 @@ export default function Detail() {
 		}
 		fetchData();
 	}, [])
-	// const time = eventDetail.eventTime;
-	// const loc = eventDetail.Location;
-	// const name = eventDetail.eventName;
+	var time = eventDetail.eventTime;
+	var loc = eventDetail.Location;
+	var name = eventDetail.eventName;
 	// const comments = eventDetail.comments;
 	// const description = eventDetail.eventDescription;
 
@@ -86,23 +86,24 @@ export default function Detail() {
 			<div className='detail-container'>
 				<div className='detail-left'>
 					<div className='detail-details'>{"Details"}</div>
-
+					<hr class="hr-edge-weak" />
 					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-time'>{formatDate(time)}</div>
+					<div className='detail-title'>{formatDate(eventDetail.eventTime)}</div>
 
 					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
-					<div className='detail-desc'>{eventDetail.eventDescription}</div>
+					<div className='detail-title'>{eventDetail.eventDescription}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
-					<div className='detail-desc'>{loc}</div>
-
-					
-					
-					<hr className="hr-edge-weak" />
+					<hr class="hr-edge-weak" />
+					<DetailLocation loc={eventDetail.Location} />
+					<div className='detail-location'>{eventDetail.Location}</div>
+				</div>
+				<div className='detail-right'>
 					<div>
 						<div>
 							<div className='detail-details'>{"Comment"}</div>
+							<hr class="hr-edge-weak" />
 						</div>
 						{
 							comments.map((comment, k) => (
@@ -110,10 +111,7 @@ export default function Detail() {
 							))
 						}
 					</div>
-				</div>
-				<div className='detail-right'>
-					<DetailLocation loc={loc} />
-					<div className='detail-location'>{loc}</div>
+					
 				</div>
 			</div>
 		</div>
