@@ -11,15 +11,16 @@ import Button from '@mui/joy/Button';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Textarea from '@mui/joy/Textarea';
+import DetailLocation from './DetailLocation';
 
 export default function Detail() {
 	const iniEvtState = {
-		"createdAt": "2023-02-10T21:12:34.573Z",
-		"eventTime": "2000-08-09T02:12:03.148Z",
-		"Location": "Location 1",
-		"eventName": "eventName 1",
+		"createdAt": "",
+		"eventTime": "",
+		"Location": "",
+		"eventName": "",
 		"comments": [],
-		"id": "122"
+		"id": "1"
 	}
 
 	const [eventDetail, setEventDetail] = useState(iniEvtState);
@@ -59,7 +60,6 @@ export default function Detail() {
 	useEffect(() => {
 		async function fetchData() {
 			const eventDetail_ = await getEvent(eventID);
-			console.log(eventDetail_);
 			if (eventDetail_ !== undefined) {
 				// setEventDetail(eventDetail => ({
 				// 	...eventDetail,
@@ -85,13 +85,24 @@ export default function Detail() {
 			</Link>
 			<div className='detail-container'>
 				<div className='detail-left'>
-					<div className='detail-time'>{formatDate(eventDetail.eventTime)}</div>
+					<div className='detail-details'>{"Details"}</div>
+
+					<div className='detail-date'>{"Date: "}</div>
+					<div className='detail-time'>{eventDetail.eventTime}</div>
+
+					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
 					<div className='detail-desc'>{eventDetail.eventDescription}</div>
-					<hr className="hr-edge-weak" />
+
+					<div className='detail-details'>{"Venue"}</div>
+					<div className='detail-desc'>{eventDetail.Location}</div>
+
+					
+					
+					<hr class="hr-edge-weak" />
 					<div>
 						<div>
-							Comments
+							<div className='detail-details'>{"Comment"}</div>
 						</div>
 						{
 							comments.map((comment, k) => (
@@ -136,6 +147,8 @@ export default function Detail() {
 							
 						</FormControl>
 					</div>
+					<DetailLocation loc={eventDetail.Location} />
+					<div className='detail-location'>{eventDetail.Location}</div>
 				</div>
 			</div>
 		</div>
