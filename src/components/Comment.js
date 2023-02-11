@@ -31,7 +31,7 @@ export default function Comment(props) {
             <div className="comment-text">
                 {text}
             </div>
-            {pic && (
+            {pic.length > 1 && (
                 <img className="comment-pic" src={pic} alt="comment-pic" />
             )}
         </div>

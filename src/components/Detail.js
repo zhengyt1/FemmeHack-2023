@@ -7,6 +7,11 @@ import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import DetailLocation from './DetailLocation';
+import Box from '@mui/joy/Box';
+import Button from '@mui/joy/Button';
+import FormControl from '@mui/joy/FormControl';
+import FormLabel from '@mui/joy/FormLabel';
+import Textarea from '@mui/joy/Textarea';
 
 export default function Detail() {
 	const iniEvtState = {
@@ -44,6 +49,7 @@ export default function Detail() {
 	}
 	const handleClick = async () => {
 		const text = document.getElementById("newComment").value;
+		document.getElementById("newComment").value = "";
 		const newComment = {
 			"createdAt": new Date(),
 			"pic": "/" + image,
@@ -54,6 +60,7 @@ export default function Detail() {
 		setComments(newComments);
 		setImage("");
 	}
+
 	useEffect(() => {
 		async function fetchData() {
 			const eventDetail_ = await getEvent(eventID);
@@ -98,6 +105,40 @@ export default function Detail() {
 				</div>
 				<div className='detail-right'>
 					<div>
+						<div className='upload'>
+							<FormControl id="newComment" onSubmit={handleClick}>
+								<FormLabel>Your comment</FormLabel>
+								<Textarea
+									placeholder="Type something here…"
+									minRows={3}
+									endDecorator={
+										<Box type="submit"
+											sx={{
+												display: 'flex',
+												gap: 'var(--Textarea-paddingBlock)',
+												pt: 'var(--Textarea-paddingBlock)',
+												borderTop: '1px solid',
+												borderColor: 'divider',
+												flex: 'auto',
+											}}
+										>
+											<input
+												// style={{ display: 'none' }}
+												type="file"
+												id="file"
+												accept=".png,.jpeg,.jpg"
+												onChange={(e) => setImage(e.target.files[0].name)}
+											/>
+											<Button sx={{ ml: 'auto' }} onClick={handleClick}>Send</Button>
+										</Box>
+									}
+									sx={{
+										minWidth: 300,
+									}}
+								/>
+
+							</FormControl>
+						</div>
 						<div>
 							<div className='detail-details'>{"Comment"}</div>
 							<hr class="hr-edge-weak" />
