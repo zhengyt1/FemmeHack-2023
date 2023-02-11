@@ -19,15 +19,16 @@ export default function Comment(props) {
     }
     return (
         <div className="comment-container">
-            {pic !== "" && (
-                <img className="comment-pic" src={pic} alt="comment-pic" />
-            )}
+
+            <div className="comment-time">
+                {formatCommentTime(createdTime)}
+            </div>
             <div className="comment-text">
                 {text}
             </div>
-            <div>
-                {formatCommentTime(createdTime)}
-            </div>
+            {pic !== "" && (
+                <img className="comment-pic" src={pic} alt="comment-pic" />
+            )}
         </div>
     )
 }

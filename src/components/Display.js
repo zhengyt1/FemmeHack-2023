@@ -14,7 +14,7 @@ export default function Display(props) {
 						{
 							date.events.map((event, k1) => (
 								<Link key={k1} to={`/detail/${event.id}`}>
-									<Post event={event} eventTime={date.time}></Post>
+									<Post post={event} eventTime={date.time}></Post>
 								</Link>
 							))
 						}
