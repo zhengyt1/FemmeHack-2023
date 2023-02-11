@@ -1,4 +1,6 @@
-## Project: Free Lunch
+# Project: Free Lunch
+
+Hi! We are graduate students from University of Pennsylvania majoring in EE, CIS and MCIT. Here is our project for FemmeHacks 2023.
 
 ## Introduction
 
@@ -36,3 +38,8 @@ In the future, the web app can be improved by
 ## Built with
 Figma, CSS, HTML, JavaScript, React.JS, Node.JS, Git, [mockAPI](https://mockapi.io/)
 
+## Members
+- **Shuyue Wang**
+- **Yuting Zheng**
+- **Chuyan Chen**
+- **Luyang Xie**
