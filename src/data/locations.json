@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Hayden Hall",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.5594191226824!2d-75.1934593846296!3d39.951243679421815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65aebdea517%3A0xee72413eac398a52!2sHayden%20Hall!5e0!3m2!1sen!2sus!4v1676143723541!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0215.jpg?itok=InDYVGnT"
+    },
+    {
+        "name": "Laboratory for Research on the Structure of Matter",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12233.93965334791!2d-75.19842260547742!3d39.95290987235794!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c650021d933f%3A0xfb51a69b09e4f647!2sLaboratory%20for%20Research%20on%20the%20Structure%20of%20Matter!5e0!3m2!1sen!2sus!4v1676143828381!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0280.jpg?itok=jphW_v3_"
+    },
+    {
+        "name": "Levine Hall, Melvin and Claire",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12234.004492691502!2d-75.19975580547764!3d39.95254737235868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65a98142a23%3A0x8d43d5371b5e9781!2sLevine%20Hall!5e0!3m2!1sen!2sus!4v1676143852516!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0293.jpg?itok=zzvARUNh"
+    },
+    {
+        "name": "Levine North",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12234.033343806153!2d-75.19903410547765!3d39.952386072359!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65abbfda39d%3A0xdff479ca17edf3ad!2s200%20S%2033rd%20St%2C%20Philadelphia%2C%20PA%2019104!5e0!3m2!1sen!2sus!4v1676144977499!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0185.jpg?itok=EQtpl7dP"
+    },
+    {
+        "name": "Market Street, 3600",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12233.419579379903!2d-75.20330610547602!3d39.95581737235202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c651283d2137%3A0x7ba6abb93fe3a520!2s3600%20Market%20St%2C%20Philadelphia%2C%20PA%2019104!5e0!3m2!1sen!2sus!4v1676145006148!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi7024_0.jpg?itok=Y6c96vsQ"
+    },
+    {
+        "name": "Moore School Building",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12234.012899411935!2d-75.19938190547758!3d39.95250037235875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65aa427a0af%3A0xfd71e2cb83adde45!2sDepartment%20of%20Electrical%20and%20Systems%20Engineering!5e0!3m2!1sen!2sus!4v1676145024329!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0345.jpg?itok=oGxwl2JQ"
+    },
+    {
+        "name": "Pennovation Center",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12235.98045363611!2d-75.20821480548288!3d39.94149897238116!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c6604b976e85%3A0xf1832c05f0e57070!2sPennovation%20Center!5e0!3m2!1sen!2sus!4v1676145047578!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_slider_640x480_style/public/penn-connects-images/pennovation_center_large_1.jpg?itok=DXwmRuFa"
+    },
+    {
+        "name": "Pennovation Works Lab Building",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12235.869438170363!2d-75.2093152054826!3d39.94211977237991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c66025462981%3A0x2cdf943dbbd8bf66!2sWorking%20Dog%20Center%2C%203401%20Grays%20Ferry%20Ave%2C%20Philadelphia%2C%20PA%2019146!5e0!3m2!1sen!2sus!4v1676145102950!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_slider_640x480_style/public/penn-connects-images/2020_11_02_balintpen01_b.jpg?itok=G6ijIpGw"
+    },
+    {
+        "name": "Singh Center for Nanotechnology, Krishna P.",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12233.961215837766!2d-75.19766500547745!3d39.95278932235819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c64ffa3deff9%3A0xef521f75fad58152!2sKrishna%20P.%20Singh%20Center%20for%20Nanotechnology%2C%203205%20Walnut%20St%2C%20Philadelphia%2C%20PA%2019104!5e0!3m2!1sen!2sus!4v1676145130730!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_slider_640x480_style/public/penn-connects-images/singh_nanotech_large_1.jpg?itok=bYITCMgj"
+    },
+    {
+        "name": "Skirkanich Hall",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12233.961215837766!2d-75.19766500547745!3d39.95278932235819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65abb2e2f95%3A0x6ab9195e249a846d!2sSkirkanich%20Hall!5e0!3m2!1sen!2sus!4v1676145146531!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0456.jpg?itok=iDaPwqsM"
+    },
+    {
+        "name": "Tangen Hall",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12234.09134981448!2d-75.19912560547782!3d39.95206177235968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c740b2383647%3A0x74d21b57e05a759f!2sTangen%20Hall!5e0!3m2!1sen!2sus!4v1676145162013!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_slider_640x480_style/public/penn-connects-images/2020-11-02_tangen_hall_sw_aerial.jpg?itok=hIARLFLC"
+    },
+    {
+        "name": "Towne Building",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12234.161643341857!2d-75.19993700547798!3d39.95166877236044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65abd3c6805%3A0xd30011738425d96!2sTowne%20Building!5e0!3m2!1sen!2sus!4v1676146386571!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0570.jpg?itok=9Bkqa-rv"
+    },
+    {
+        "name": "Vagelos Laboratories of the IAST, Roy and Diana",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12234.245959042624!2d-75.19884570547825!3d39.951197372361435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65a94aa82f9%3A0x365533a4c09cdf7!2sSmith%20Walk%2C%20Philadelphia%2C%20PA%2019104!5e0!3m2!1sen!2sus!4v1676145203831!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0227.jpg?itok=suPo7YO0"
+    },
+    {
+        "name": "Walnut Street, 3401",
+        "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12233.925147154618!2d-75.20102050547737!3d39.9529909723578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6c65083d1cc41%3A0x3a6c4233d20a42d9!2s3401%20Walnut%20St%2C%20Philadelphia%2C%20PA%2019104!5e0!3m2!1sen!2sus!4v1676145240397!5m2!1sen!2sus",
+        "imgSrc": "https://www.facilities.upenn.edu/sites/default/files/styles/building_image/public/bi0416_0.jpg?itok=KH-tTttf"
+    }
+]
