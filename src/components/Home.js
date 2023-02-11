@@ -7,8 +7,10 @@ import { styled } from '@mui/system';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-import Select from '@mui/joy/Select';
+// import Select from '@mui/joy/Select';
 import Option from '@mui/joy/Option';
+import Select from 'react-select';
+// import Option
 import { message } from 'antd';
 import './Home.css';
 import { getEvents, createEvent } from '../mockAPI/mockAPI';
@@ -65,27 +67,25 @@ export default function Home(props) {
 	// const [reportdate, setDate] = useState(null);
 	const [reportTime, setTime] = useState(null);
 	const [image, setImage] = useState("");
+	const [location, setLocation] = useState({});
 	var locations = require('../data/locations.json');
 	// locations = locations.filter(loc => loc.name.includes(eventLocation));
-	locations = locations.map(loc => loc.name);
+	locations = locations.map(loc => ({"value": loc.name, "label": loc.name}));
 	console.log(locations);
 
 	const clickReport = async () => {
-		console.log("in click")
-		const location = document.getElementById('location').value;
-		// const date = document.getElementById('date');
-		// const time = document.getElementById('time');
+		// console.log("in click")
 		const event = document.getElementById("event").value;
 		const status = event.Status;
 		// const picture = event.pic
-		if ((location === '' || reportTime === null || event === '') === true) {
+		if ((!location.value || reportTime === null || event === '') === true) {
 			messageApi.info("Please enter all fields");
 			return;
 		}
 		const newEvent = {
 			"createdAt": new Date(),
 			"eventTime": reportTime,
-			"Location": location,
+			"Location": location.value,
 			"eventName": event,
 			"comments": [],
 			// "pic": "/" + image,
@@ -93,7 +93,7 @@ export default function Home(props) {
 			// "pic": picture,
 			// "id": "1"
 		}
-		console.log(image);
+		console.log(location);
 		await createEvent(newEvent);
 		await fetchData();
 		setImage("");
@@ -175,7 +175,7 @@ export default function Home(props) {
 			<div className='display'>
 				<Display data={data} />
 			</div>
-			<div class="vline"></div>
+			<div className="vline"></div>
 			<div className='report'>
 				<div className='report-title'>report</div>
 				<Box
@@ -203,19 +203,7 @@ export default function Home(props) {
 								shrink: true,
 							}}
 						/> */}
-						
-						<div className='location'>
-							<Select
-								variant="plain"
-								// value={currency}
-								// onChange={(_, value) => setCurrency(value!)}
-								sx={{ mr: -1.5, '&:hover': { bgcolor: 'transparent' } }}
-							>
-								<Option value="dollar">US dollar</Option>
-								<Option value="baht">Thai baht</Option>
-								<Option value="yen">Japanese yen</Option>
-							</Select>
-						</div>
+
 						<LocalizationProvider dateAdapter={AdapterDayjs}>
 							<DateTimePicker
 								renderInput={(props) => <TextField id="time"{...props} />}
@@ -227,6 +215,18 @@ export default function Home(props) {
 								}}
 							/>
 						</LocalizationProvider>
+
+						<Select
+							// variant="plain"
+							id="location"
+							className='select'
+							maxMenuHeight={250}
+							options={locations}
+							value={location}
+							onChange={(newValue) => {setLocation(newValue);}}
+						>	
+						
+						</Select>
 						{/* <input
 							// style={{ display: 'none' }}
 							className='upload-image'

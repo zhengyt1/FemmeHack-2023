@@ -99,7 +99,7 @@ export default function Detail() {
 
 					
 					
-					<hr class="hr-edge-weak" />
+					<hr className="hr-edge-weak" />
 					<div>
 						<div>
 							<div className='detail-details'>{"Comment"}</div>

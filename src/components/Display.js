@@ -8,7 +8,7 @@ export default function Display(props) {
 		<div className="display-container">
 			<header className= "bar-style">
 				<img className="display-pic" alt="pic" src='freelunchlogo.png' />
-      			<h1 style={{ margin: 0, paddingLeft: 180, color: "#fff"}}>Welcome to Free Lunch!</h1>
+				<h1 style={{ margin: 0, color: "#fff"}}>Welcome to Free Lunch!</h1>
 			</header>
 			{
 				data.map((date, k) => (
@@ -16,7 +16,7 @@ export default function Display(props) {
 						<div className='date'>{date.time}</div>
 						{
 							date.events.map((event, k1) => (
-								<Link key={k1} to={`/detail/${event.id}`}>
+								<Link key={k1} to={`/detail/${event.id}`} style={{ textDecoration: 'none' }}>
 									<Post post={event} eventTime={date.time}></Post>
 								</Link>
 							))
