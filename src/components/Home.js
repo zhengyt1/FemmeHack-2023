@@ -69,6 +69,8 @@ export default function Home(props) {
 		// const date = document.getElementById('date');
 		// const time = document.getElementById('time');
 		const event = document.getElementById("event").value;
+		const status = event.Status;
+		const picture = event.pic
 		if ((location === '' || reportTime === null || event === '') === true) {
 			messageApi.info("Please enter all fields");
 			return;
@@ -79,6 +81,8 @@ export default function Home(props) {
 			"Location": location,
 			"eventName": event,
 			"comments": [],
+			"Status" : status,
+			"pic": picture,
 			// "id": "1"
 		}
 		await createEvent(newEvent);

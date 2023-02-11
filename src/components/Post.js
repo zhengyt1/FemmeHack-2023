@@ -5,15 +5,17 @@ import { faLocationArrow } from '@fortawesome/free-solid-svg-icons';
 
 export default function Post(props) {
 	const {
-		time,
+		createdAt,
+		eventTime,
 		Status,
+		eventName,
 		Location,
-		imgSrc
+		pic
 	} = props.post;
 	const statusClass = Status === "Opening" ? "post-status-open" : "post-status-closed";
 	return (
 		<div className="post-container">
-			<img className="post-pic" alt="pic" src={imgSrc} />
+			<img className="post-pic" alt="pic" src={pic} />
 			<div className="post-description">
 
 				<div className="post-status">
@@ -23,7 +25,7 @@ export default function Post(props) {
 					<div className="Location">{Location}</div>
 				</div>
 				<div className="post-time">
-					<div className="time">{time}</div>
+					<div className="eventTime">{eventTime}</div>
 				</div>
 				
 			</div>

@@ -55,6 +55,7 @@ export default function Detail() {
 	const name = eventDetail.eventName;
 	const comments = eventDetail.comments;
 	const description = eventDetail.eventDescription;
+	
 
 	return (
 		<div>
@@ -63,13 +64,24 @@ export default function Detail() {
 			</Link>
 			<div className='detail-container'>
 				<div className='detail-left'>
+					<div className='detail-details'>{"Details"}</div>
+
+					<div className='detail-date'>{"Date: "}</div>
 					<div className='detail-time'>{formatDate(time)}</div>
+
+					<div className='detail-date'>{"Event Categories: "}</div>
 					<div className='detail-title'>{name}</div>
 					<div className='detail-desc'>{description}</div>
+
+					<div className='detail-details'>{"Venue"}</div>
+					<div className='detail-desc'>{loc}</div>
+
+					
+					
 					<hr class="hr-edge-weak" />
 					<div>
 						<div>
-							Comments
+							<div className='detail-details'>{"Comment"}</div>
 						</div>
 						{
 							comments.map((comment, k) => (
