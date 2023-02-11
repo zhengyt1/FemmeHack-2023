@@ -1,8 +1,8 @@
-## Project: Looking for free lunch
+## Project: Free Lunch
 
 ## Introduction
 
-Welcome to the Looking for Free Lunch project! This project is aimed at helping people find free lunch options in the local area and avoid food waste. Whether you're a student on a tight budget, a busy professional with limited time, or just someone who loves a good deal, this project is for you.
+Welcome to the Free Lunch project! This project is aimed at helping people find free lunch options in the local area and avoid food waste. Whether you're a student on a tight budget, a busy professional with limited time, or just someone who loves a good deal, this project is for you.
 
 ## Inspiration
 
