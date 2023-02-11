@@ -102,7 +102,7 @@ export default function Detail() {
 					<div className='detail-desc'>{eventDetail.eventDescription}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
-					<div className='detail-desc'>{eventDetail.Location}</div>
+					<div className='detail-desc'>{loc}</div>
 
 
 

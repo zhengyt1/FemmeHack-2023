@@ -1,6 +1,12 @@
 # Project: Free Lunch
 
 Hi! We are graduate students from University of Pennsylvania majoring in EE, CIS and MCIT. Here is our project for FemmeHacks 2023.
+## Members
+- **Shuyue Wang**
+- **Yuting Zheng**
+- **Chuyan Chen**
+- **Luyang Xie**
+
 
 ## Introduction
 
@@ -20,10 +26,15 @@ The platform provides a simple and convenient solution for people to post and se
 
 Organizers of events can also benefit from the platform as it can help them to gauge the demand for food and order more accurately, reducing the amount of leftovers and food waste. In this way, the "Looking for Free Lunch" platform promotes a more sustainable and community-driven approach to food distribution and waste reduction.
 
-## Features
+## What it does
 - Post current free food events, times and locations with additional food descriptions
 - Look for the newest events post to quickly know where to eat free food.
 - Add comment on the free food events to let people know the update of the event status (like food has been eaten out) or more detailed description and pictures of the event.
+
+
+## How we built it
+### Built with
+Figma, CSS, HTML, JavaScript, React.JS, Node.JS, Git, [mockAPI](https://mockapi.io/)
 
 ## How to run
 
@@ -38,7 +49,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-## What's next
+## Challenges we ran into
+
+
+## Accomplishments that we're proud of
+
+## What we learned
+
+## What's next for FreeLunch
 
 In the future, the web app can be improved by 
 - Add event tags and food tags so people can not only attracted by free food, but also the amazing events
@@ -46,11 +64,13 @@ In the future, the web app can be improved by
 - Recommend free lunch events to users based on their locations
 - implementing chat functions of user log-in and real-time chatting, to make the platform more secure and improve the communication efficiency.
 
-## Built with
-Figma, CSS, HTML, JavaScript, React.JS, Node.JS, Git, [mockAPI](https://mockapi.io/)
 
-## Members
-- **Shuyue Wang**
-- **Yuting Zheng**
-- **Chuyan Chen**
-- **Luyang Xie**
+
+
+
+
+
+
+
+
+
