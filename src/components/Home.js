@@ -12,19 +12,19 @@ import './Home.css';
 import { getEvents, createEvent } from '../mockAPI/mockAPI';
 
 const blue = {
-  500: '#007FFF',
-  600: '#0072E5',
-  700: '#0059B2',
+	500: '#007FFF',
+	600: '#0072E5',
+	700: '#0059B2',
 };
 
 const grey = {
-  100: '#eaeef2',
-  300: '#afb8c1',
-  900: '#24292f',
+	100: '#eaeef2',
+	300: '#afb8c1',
+	900: '#24292f',
 };
 
 const CustomButton = styled(ButtonUnstyled)(
-  ({ theme }) => `
+	({ theme }) => `
   font-family: IBM Plex Sans, sans-serif;
   font-weight: bold;
   font-size: 0.875rem;
@@ -62,6 +62,7 @@ export default function Home(props) {
 	const [data, setData] = useState([]);
 	// const [reportdate, setDate] = useState(null);
 	const [reportTime, setTime] = useState(null);
+	const [image, setImage] = useState("");
 
 	const clickReport = async () => {
 		console.log("in click")
@@ -70,7 +71,7 @@ export default function Home(props) {
 		// const time = document.getElementById('time');
 		const event = document.getElementById("event").value;
 		const status = event.Status;
-		const picture = event.pic
+		// const picture = event.pic
 		if ((location === '' || reportTime === null || event === '') === true) {
 			messageApi.info("Please enter all fields");
 			return;
@@ -81,12 +82,15 @@ export default function Home(props) {
 			"Location": location,
 			"eventName": event,
 			"comments": [],
+			"pic": "/" + image,
 			"Status" : status,
-			"pic": picture,
+			// "pic": picture,
 			// "id": "1"
 		}
+		console.log(image);
 		await createEvent(newEvent);
 		await fetchData();
+		setImage("");
 	}
 	function formatDate(date) {
 		var d = new Date(date),
@@ -113,6 +117,15 @@ export default function Home(props) {
 		// 	"id": "1"
 		//   },
 
+		function checkLargerThanToday(eventTime) {
+			var currDate = new Date();
+			currDate.setHours(0, 0, 0, 0);
+			const eveTime = new Date(eventTime);
+			return eveTime >= currDate;
+		}
+		eventsData = eventsData.filter(
+			(event) => checkLargerThanToday(event.eventTime)
+		);
 		const eventsdict = eventsData.reduce((eventsdict, event) => {
 			const eventDate = formatDate(event.eventTime);
 			if (eventsdict[eventDate] !== undefined)
@@ -125,19 +138,22 @@ export default function Home(props) {
 		var dateEventsArray = [];
 		for (const [key, value] of Object.entries(eventsdict)) {
 			// console.log(key, value);
+			// format is:
+			// "time": ...
+			// "events": [{eventDetail...}]
 			const dateEvents = {
 				"time": key,
 				"events": value
 			}
 			dateEventsArray.push(dateEvents);
 		}
-		// console.log(dateEventsArray);
+		console.log(dateEventsArray);
 
 		if (dateEventsArray !== undefined) {
 			dateEventsArray = dateEventsArray.sort(
 				(a, b) => (a.events[0].eventTime > b.events[0].eventTime ? 1 : -1),
 			);
-			console.log(dateEventsArray);
+			// console.log(dateEventsArray);
 			setData(dateEventsArray);
 		}
 		// console.log(data);
@@ -153,6 +169,7 @@ export default function Home(props) {
 			<div className='display'>
 				<Display data={data} />
 			</div>
+			<div class="vline"></div>
 			<div className='report'>
 				<div className='report-title'>report</div>
 				<Box
@@ -181,16 +198,24 @@ export default function Home(props) {
 							}}
 						/>
 						<LocalizationProvider dateAdapter={AdapterDayjs}>
-						<DateTimePicker
-							renderInput={(props) => <TextField id="time"{...props} />}
-							label="DateTimePicker"
-							value={reportTime}
-							
-							onChange={(newValue) => {
-								setTime(newValue);
-							}}
-						/>
+							<DateTimePicker
+								renderInput={(props) => <TextField id="time"{...props} />}
+								label="DateTimePicker"
+								value={reportTime}
+
+								onChange={(newValue) => {
+									setTime(newValue);
+								}}
+							/>
 						</LocalizationProvider>
+						<input
+							// style={{ display: 'none' }}
+							className='upload-image'
+							type="file"
+							id="file"
+							accept=".png,.jpeg,.jpg"
+							onChange={(e) => setImage(e.target.files[0].name)}
+						/>
 						<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
 					</div>
 				</Box>

@@ -1,7 +1,31 @@
 .display-title {
-  font-size: 60px;
+  font-size: 50px;
+}
+
+.display-container {
+  border-right: 2px solid; 
+  border-color: black;
+  border-bottom: 2px solid; 
 }
 
 .date-container {
 	margin: 100px;
+}
+
+.display-pic {
+	width: 200px;
+	height: 100px;
+  margin-left: 0px;
+  margin-top: 0px;
+	display: flex;
+	object-fit: contain;
+	margin-right: 0px;
+  }
+
+.bar-style {
+  background-color: #dadaec; 
+  color: rgb(15, 15, 15); 
+  height: 100px; 
+  display: flex; 
+  align-items: center;
 }

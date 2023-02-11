@@ -10,8 +10,13 @@ export default function Post(props) {
 		Status,
 		eventName,
 		Location,
-		pic
 	} = props.post;
+
+	var locs = require('../data/locations.json');
+	locs = locs.filter(loc => loc.name.includes(Location));
+	const pic = locs.length > 0 ? locs[0].imgSrc : "";
+
+	// const pic = 
 	const statusClass = Status === "Opening" ? "post-status-open" : "post-status-closed";
 	return (
 		<div className="post-container">
@@ -19,7 +24,7 @@ export default function Post(props) {
 			<div className="post-description">
 
 				<div className="post-status">
-				<div className={`status ${statusClass}`} >{Status}</div>
+					<div className={`status ${statusClass}`} >{Status}</div>
 				</div>
 				<div className="post-location">
 					<div className="Location">{Location}</div>
@@ -27,10 +32,10 @@ export default function Post(props) {
 				<div className="post-time">
 					<div className="eventTime">{eventTime}</div>
 				</div>
-				
+
 			</div>
 			<div className="post-arrow">
-				<FontAwesomeIcon icon= {faLocationArrow} /> 
+				<FontAwesomeIcon icon={faLocationArrow} />
 			</div>
 		</div>
 	)

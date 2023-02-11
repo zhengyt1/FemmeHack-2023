@@ -2,6 +2,7 @@
 	width: 100%;
 	display: flex;
 	flex-direction: row;
+	border-color:black;
 }
 .display {
 	flex-grow: 1;
@@ -34,3 +35,8 @@
 	color: #000; */
 	margin: 20px;
 }
+
+.upload-image {
+  margin-left: 10px;
+}
+
