@@ -50,14 +50,16 @@ The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ## Challenges we ran into
-
+Since we are not so familiar with figma, the user iterface design is a little bit challenging for us.
 
 ## Accomplishments that we're proud of
+Reducing food waste by connecting people with surplus food to those who need it, preventing the waste of perfectly good food and helping to combat hunger.
 
 ## What we learned
+How to stay up-to-date with the latest trends, tools, and techniques in React development, and how to continue to grow your skills and knowledge over time.
+How to work as part of a team, sharing responsibilities and collaborating on the development process.
 
 ## What's next for FreeLunch
-
 In the future, the web app can be improved by 
 - Add event tags and food tags so people can not only attracted by free food, but also the amazing events
 - Filter events by locations or tags

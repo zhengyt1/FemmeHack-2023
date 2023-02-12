@@ -66,6 +66,7 @@ export default function Home(props) {
 	const [data, setData] = useState([]);
 	// const [reportdate, setDate] = useState(null);
 	const [reportTime, setTime] = useState(null);
+	// const [description, setDescription] = useState("");
 	const [image, setImage] = useState("");
 	const [location, setLocation] = useState({});
 	var locations = require('../data/locations.json');
@@ -74,7 +75,7 @@ export default function Home(props) {
 
 	const clickReport = async () => {
 		const event = document.getElementById("event").value;
-		document.getElementById("event").value = "";
+		const description = document.getElementById("description").value;
 		// const status = event.Status;
 		// const picture = event.pic
 		if ((!location.value || reportTime === null || event === '') === true) {
@@ -86,6 +87,7 @@ export default function Home(props) {
 			"eventTime": reportTime,
 			"Location": location.value,
 			"eventName": event,
+			"eventDescription": description,
 			"comments": [],
 			// "pic": "/" + image,
 			"Status": "Not Open",
@@ -202,6 +204,16 @@ export default function Home(props) {
 								}}
 							/> */}
 
+							
+							<TextField
+								required
+								id="description"
+								label="description"
+								InputLabelProps={{
+									shrink: true,
+								}}
+							/>
+
 							<LocalizationProvider dateAdapter={AdapterDayjs}>
 								<DateTimePicker
 									renderInput={(props) => <TextField id="time"{...props} />}
@@ -223,6 +235,7 @@ export default function Home(props) {
 								value={location}
 								onChange={(newValue) => { setLocation(newValue); }}
 							>
+
 
 							</Select>
 							<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
