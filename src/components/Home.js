@@ -190,7 +190,7 @@ export default function Home(props) {
 							<TextField
 								required
 								id="event"
-								label="event name"
+								label="Event name"
 								InputLabelProps={{
 									shrink: true,
 								}}
@@ -208,7 +208,7 @@ export default function Home(props) {
 							<TextField
 								required
 								id="description"
-								label="description"
+								label="Description"
 								InputLabelProps={{
 									shrink: true,
 								}}
