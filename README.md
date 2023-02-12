@@ -30,12 +30,13 @@ The platform provides a simple and convenient solution for people to post and se
 
 Organizers of events can also benefit from the platform as it can help them to gauge the demand for food and order more accurately, reducing the amount of leftovers and food waste. In this way, the "Looking for Free Lunch" platform promotes a more sustainable and community-driven approach to food distribution and waste reduction.
 
+
 ## What it does
 - Post current free food events, times and locations with additional food descriptions
 - Look for the newest events post to quickly know where to eat free food.
 - Add comment on the free food events to let people know the update of the event status (like food has been eaten out) or more detailed description and pictures of the event.
-
-
+<img width="1427" alt="Screen Shot 2023-02-11 at 20 22 38" src="https://user-images.githubusercontent.com/46682066/218288094-abf5a049-dc94-4c46-ba57-b5282d26fae7.png">
+<img width="1420" alt="Screen Shot 2023-02-11 at 20 22 29" src="https://user-images.githubusercontent.com/46682066/218288095-d7707727-f058-4412-92a9-37b0406e8f3b.png">
 ## How we built it
 ### Built with
 Figma, CSS, HTML, JavaScript, React.JS, Node.JS, Git, [mockAPI](https://mockapi.io/)
