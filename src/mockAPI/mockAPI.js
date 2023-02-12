@@ -23,6 +23,16 @@ export const getEvent = async (eventID) => {
     }
 }
 
+export const deleteEvent = async (eventID) => {
+    try {
+        const response = await axios.delete(`${rootURL}/events/${eventID}`);
+        return response.data;
+    }
+    catch (err) {
+        console.error(err);
+    }
+}
+
 export const createEvent = async (eventObject) => {
     try {
         const response = await axios.post(

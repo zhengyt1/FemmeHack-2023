@@ -238,14 +238,6 @@ export default function Home(props) {
 
 
 							</Select>
-							{/* <input
-								// style={{ display: 'none' }}
-								className='upload-image'
-								type="file"
-								id="file"
-								accept=".png,.jpeg,.jpg"
-								onChange={(e) => setImage(e.target.files[0].name)}
-							/> */}
 							<CustomButton className='submit' onClick={clickReport}>Submit</CustomButton>
 						</div>
 					</Box>

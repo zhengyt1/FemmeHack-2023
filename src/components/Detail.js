@@ -1,14 +1,19 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import './Detail.css';
 import Comment from './Comment';
-import { getEvent, updateEvent } from '../mockAPI/mockAPI';
+import { deleteEvent, getEvent, updateEvent } from '../mockAPI/mockAPI';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import DetailLocation from './DetailLocation';
+import Box from '@mui/joy/Box';
+import Button from '@mui/joy/Button';
+import FormControl from '@mui/joy/FormControl';
+import Textarea from '@mui/joy/Textarea';
 
 export default function Detail() {
+	const nav = useNavigate();
 	const iniEvtState = {
 		"createdAt": "",
 		"eventTime": "",
@@ -44,16 +49,27 @@ export default function Detail() {
 	}
 	const handleClick = async () => {
 		const text = document.getElementById("newComment").value;
+		document.getElementById("newComment").value = "";
 		const newComment = {
 			"createdAt": new Date(),
 			"pic": "/" + image,
 			text,
 		}
 		const newComments = [newComment, ...comments];
-		await updateEvent(eventID, { "comments": newComments });
-		setComments(newComments);
-		setImage("");
+		if (newComment["text"].includes("delete")) {
+			console.log("contain delete");
+			await deleteEvent(eventID);
+			nav('/');
+		}
+		else {
+			await updateEvent(eventID, { "comments": newComments });
+			setComments(newComments);
+			setImage("");
+		}
+
+
 	}
+
 	useEffect(() => {
 		async function fetchData() {
 			const eventDetail_ = await getEvent(eventID);
@@ -84,20 +100,53 @@ export default function Detail() {
 				<div className='detail-left'>
 					<div className='detail-details'>{"Details"}</div>
 					<hr className="hr-edge-weak" />
-					<div className='detail-date'>{"Date: "}</div>
-					<div className='detail-title'>{formatDate(eventDetail.eventTime)}</div>
+					<div className='detail-date'>{"Time: "}</div>
+					<div className='detail-title'>{formatDate(eventDetail.eventTime) + " " + formatTime(eventDetail.eventTime)}</div>
 
-					<div className='detail-date'>{"Event Categories: "}</div>
+					<div className='detail-date'>{"Event Description: "}</div>
 					<div className='detail-title'>{eventDetail.eventName}</div>
 					<div className='detail-title'>{eventDetail.eventDescription}</div>
 
 					<div className='detail-details'>{"Venue"}</div>
 					<hr className="hr-edge-weak" />
 					<DetailLocation loc={eventDetail.Location} />
-					<div className='detail-location'>{eventDetail.Location}</div>
+					{/* <div className='detail-location'>{eventDetail.Location}</div> */}
 				</div>
 				<div className='detail-right'>
 					<div>
+						<div className='upload'>
+							<FormControl id="newComment" onSubmit={handleClick}>
+								<Textarea
+									placeholder="Your comment here…"
+									minRows={3}
+									endDecorator={
+										<Box type="submit"
+											sx={{
+												display: 'flex',
+												gap: 'var(--Textarea-paddingBlock)',
+												pt: 'var(--Textarea-paddingBlock)',
+												borderTop: '1px solid',
+												borderColor: 'divider',
+												flex: 'auto',
+											}}
+										>
+											<input
+												// style={{ display: 'none' }}
+												type="file"
+												id="file"
+												accept=".png,.jpeg,.jpg"
+												onChange={(e) => setImage(e.target.files[0].name)}
+											/>
+											<Button sx={{ ml: 'auto' }} onClick={handleClick}>Send</Button>
+										</Box>
+									}
+									sx={{
+										minWidth: 300,
+									}}
+								/>
+
+							</FormControl>
+						</div>
 						<div>
 							<div className='detail-details'>{"Comment"}</div>
 							<hr class="hr-edge-weak" />
