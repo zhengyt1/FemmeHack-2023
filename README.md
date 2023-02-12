@@ -1,6 +1,10 @@
 # Project: Free Lunch
 
 Hi! We are graduate students from University of Pennsylvania majoring in EE, CIS and MCIT. Here is our project for FemmeHacks 2023.
+
+Here is a demo:
+https://youtu.be/GdPXdiZE_RQ
+
 ## Members
 - **Shuyue Wang**
 - **Yuting Zheng**
