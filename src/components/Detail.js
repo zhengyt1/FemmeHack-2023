@@ -1,8 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import './Detail.css';
 import Comment from './Comment';
-import { getEvent, updateEvent } from '../mockAPI/mockAPI';
+import { deleteEvent, getEvent, updateEvent } from '../mockAPI/mockAPI';
 import React from 'react'
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -10,10 +10,10 @@ import DetailLocation from './DetailLocation';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
 import Textarea from '@mui/joy/Textarea';
 
 export default function Detail() {
+	const nav = useNavigate();
 	const iniEvtState = {
 		"createdAt": "",
 		"eventTime": "",
@@ -56,9 +56,18 @@ export default function Detail() {
 			text,
 		}
 		const newComments = [newComment, ...comments];
-		await updateEvent(eventID, { "comments": newComments });
-		setComments(newComments);
-		setImage("");
+		if (newComment["text"].includes("delete")) {
+			console.log("contain delete");
+			await deleteEvent(eventID);
+			nav('/');
+		}
+		else {
+			await updateEvent(eventID, { "comments": newComments });
+			setComments(newComments);
+			setImage("");
+		}
+
+
 	}
 
 	useEffect(() => {
@@ -101,7 +110,7 @@ export default function Detail() {
 					<div className='detail-details'>{"Venue"}</div>
 					<hr className="hr-edge-weak" />
 					<DetailLocation loc={eventDetail.Location} />
-					<div className='detail-location'>{eventDetail.Location}</div>
+					{/* <div className='detail-location'>{eventDetail.Location}</div> */}
 				</div>
 				<div className='detail-right'>
 					<div>
