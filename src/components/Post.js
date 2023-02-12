@@ -10,6 +10,7 @@ export default function Post(props) {
 		Status,
 		eventName,
 		Location,
+
 	} = props.post;
 	const timeStr = new Date(eventTime).toLocaleTimeString();
 	var locs = require('../data/locations.json');
@@ -25,6 +26,9 @@ export default function Post(props) {
 
 				<div className="post-status">
 					<div className={`status ${statusClass}`} >{Status}</div>
+				</div>
+				<div className="post-location">
+					<div className="Location">{eventName}</div>
 				</div>
 				<div className="post-location">
 					<div className="Location">{Location}</div>
