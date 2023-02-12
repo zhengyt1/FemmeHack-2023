@@ -45,7 +45,22 @@ export default function Detail() {
 	}
 	function formatTime(date) {
 		var d = new Date(date);
-		return d.toLocaleTimeString();
+
+		var h, m;
+		if (d.getHours() < 10) {
+			h = d.getHours().toString();
+			h = "0" + h;
+		}
+		else {
+			h = d.getHours().toString();
+		}
+		if (d.getMinutes() < 10) {
+			m = "0" + d.getMinutes().toString();
+		}
+		else {
+			m = d.getMinutes().toString();
+		}
+		return h + ":" + m;
 	}
 	const handleClick = async () => {
 		const text = document.getElementById("newComment").value;
