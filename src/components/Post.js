@@ -12,7 +12,26 @@ export default function Post(props) {
 		Location,
 
 	} = props.post;
-	const timeStr = new Date(eventTime).toLocaleTimeString();
+	function formatTime(date) {
+		var d = new Date(date);
+
+		var h, m;
+		if (d.getHours() < 10) {
+			h = d.getHours().toString();
+			h = "0" + h;
+		}
+		else {
+			h = d.getHours().toString();
+		}
+		if (d.getMinutes() < 10) {
+			m = "0" + d.getMinutes().toString();
+		}
+		else {
+			m = d.getMinutes().toString();
+		}
+		return h + ":" + m;
+	}
+	const timeStr = formatTime(eventTime);
 	var locs = require('../data/locations.json');
 
 	locs = locs.filter(loc => loc.name.includes(Location));
